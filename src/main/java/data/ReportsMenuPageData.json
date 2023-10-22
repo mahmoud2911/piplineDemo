@@ -1,0 +1,14 @@
+{
+  "reportMenuPageTestData": [
+    {
+      "enTextAssertions": {
+        "foodicsPayReportMenuItem": "Foodics Pay Reports"
+      }
+    },
+    {
+      "arTextAssertions": {
+        "foodicsPayReportMenuItem": "تقارير فودكس pay"
+      }
+    }
+  ]
+}

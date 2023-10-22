@@ -1,0 +1,43 @@
+{
+  "ordersPageTestData": [
+    {
+      "urls": {
+        "ordersPageUrl": "https://console.foodics.dev/orders"
+      }
+    },
+    {
+      "enTextAssertions": {
+        "ordersPageTitle": "Orders - Foodics",
+        "ordersPageHeader": "Orders",
+        "orderItemRawDataExportOption": "Orders Items - Raw Data",
+        "rawDataFilterSubTitle": "Please ensure that the selected date range is within 31 days and select a maximum of 10 branches for exporting.",
+        "businessDateInstructionMessage": "You can select maximum 31 days only",
+        "businessDateLabel": "Business Date",
+        "businessDateRequired": "Business Date is required",
+        "maxDayValidationText": "You can select maximum 31 days only",
+        "branchInstructionMessage": "You can select maximum 10 branches only",
+        "branchLabel": "Branch",
+        "branchRequired": "Branch is required",
+        "maxBranchesValidationText": "You can select maximum 10 branches only",
+        "emptyOrdersReportMessage": "Download & Activate Foodics Cashier from foodics.com/cashier .. Or make orders from the web using Foodics Web Cashier."
+      }
+    },
+    {
+      "arTextAssertions": {
+        "ordersPageTitle": "",
+        "ordersPageHeader": "الطلبات",
+        "orderItemRawDataExportOption": "اصناف الطلبات - البيانات الأولية",
+        "rawDataFilterSubTitle": "ميزة التصدير  محدودة لمدة 31 يومًا كحد أقصى و 10 فروع كحد أقصى. يرجى التأكد من أن نطاق التاريخ المحدد يكون ضمن 31 يومًا أو اختيار حد أقصى لـ 10 فروع للتصدير.",
+        "businessDateInstructionMessage": "يمكنك اختيار 31 يومًا كحد أقصى فقط",
+        "businessDateLabel": "تاريخ العمل",
+        "businessDateRequired": "الفترة الزمنية مطلوبة",
+        "maxDayValidationText": "يمكنك اختيار 31 يومًا كحد أقصى فقط",
+        "branchInstructionMessage": "يمكنك اختيار 10 فروع كحد أقصى فقط",
+        "branchLabel": "الفرع",
+        "branchRequired": "حقل الفرع مطلوب",
+        "maxBranchesValidationText": "يمكنك اختيار 10 فروع كحد أقصى فقط",
+        "emptyOrdersReportMessage": "قم بتحميل و تنشيط تطبيق كاشير فوديكس من خلال الرابط foodics.com/cashier … أو قم بإنشاء الطلبات من خلال الويب باستخدام كاشير الويب الخاص بفوديكس."
+      }
+    }
+  ]
+}

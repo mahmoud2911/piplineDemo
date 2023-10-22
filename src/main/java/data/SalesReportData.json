@@ -1,0 +1,40 @@
+{
+  "reportMenuPageTestData": [
+    {
+      "urls": {
+        "salesByBranchReportPageUrl": "https://console.foodics.dev/reports/sales-by-branch",
+        "salesByProductReportPageUrl": "https://console.foodics.dev/reports/sales-by-product",
+        "salesByDiscountReportPageUrl":"https://console.foodics.dev/reports/sales-by-discount",
+        "paymentsReportPageUrl": "https://console.foodics.dev/reports/payments"
+      }
+    },
+    {
+      "enTextAssertions": {
+        "salesByBranchPageTitle": "Sales by Branch - Foodics",
+        "salesByProductPageTitle": "Sales by Product - Foodics",
+        "salesByDiscountPageTitle": "Sales by Discount - Foodics",
+        "salesByBranchPageHeader": "Sales by Branch",
+        "salesByProductPageHeader": "Sales by Product",
+        "salesByDiscountPageHeader": "Sales by Discount",
+        "paymentsPageTitle": "Payments - Foodics",
+        "paymentsPageHeader": "Payments",
+        "emptySalesReportMessage": "Make orders from Foodics Cashier to see all your sales data here, including cost, profit, taxes and customer analysis and much more. Adjust the date & filters in the report to get more specific results.",
+        "emptyPaymentsReportMessage": "Track all your payments in one place and get detailed reports on your Cash and other payment methods in your business. Adjust the date & filters in the report to get more specific results."
+      }
+    },
+    {
+      "arTextAssertions": {
+        "salesByBranchPageTitle": "",
+        "salesByProductPageTitle": "",
+        "salesByDiscountPageTitle": "",
+        "salesByBranchPageHeader": "",
+        "salesByProductPageHeader": "",
+        "salesByDiscountPageHeader": "",
+        "paymentsPageTitle": "",
+        "paymentsPageHeader": "",
+        "emptySalesReportMessage": "قم بإنشاء الطلبات من خلال تطبيق كاشير فوديكس للاطلاع على جميع بيانات المبيعات الخاصة بك هنا، بما في ذلك التكلفة، الأرباح، الضرائب و تحليلات العملاء وغير ذلك الكثير. اضبط التاريخ و خيارات التصفية في التقرير للحصول على نتائج أكثر تحديداً.",
+        "emptyPaymentsReportMessage":"تتبع جميع مدفوعاتك في مكان واحد و احصل على تقارير مفصلة عن الدفعات النقدية و طرق الدفع الأخرى في عملك. اضبط التاريخ و خيارات التصفية في التقرير للحصول على نتائج أكثر تحديداً."
+      }
+    }
+  ]
+}
