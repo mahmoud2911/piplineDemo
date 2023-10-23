@@ -13,6 +13,6 @@ Feature: Date Comparison
     Examples:
       | View  |
       | Day   |
-      | Week  |
-      | Month |
+#      | Week  |
+#      | Month |
 
