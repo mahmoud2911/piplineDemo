@@ -11,8 +11,8 @@ pipeline {
             steps {
                 script {
                     def mvnHome = 'C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2023.1.2\\plugins\\maven\\lib\\maven3'
-                    bat returnStatus: true, script: "\"${mvnHome}\\bin\\mvn.bat\" -Dmaven.test.failure.ignore clean package"
-                }
+                    bat returnStatus: true, script: "\"C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2023.1.2/plugins/maven/lib/maven3/bin/mvn.bat\" -Dmaven.test.failure.ignore clean package"
+                 }
             }
         }
     }
