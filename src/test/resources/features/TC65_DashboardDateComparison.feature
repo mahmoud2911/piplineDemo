@@ -1,4 +1,4 @@
-@test
+@regression
 Feature: Date Comparison
 
   Background:
