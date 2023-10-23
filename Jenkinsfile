@@ -3,6 +3,7 @@ pipeline {
     tools {
         // Define the Maven tool and version to use
         maven 'Maven 3.9.5'
+        allure 'Allure 2.24.1'
     }
     stages {
         stage('Checkout') {
@@ -40,15 +41,15 @@ pipeline {
             steps {
                 script {
                     // Publish the execution summary report from the 'execution-summary' directory in the project root
-                    publishHTML(target: [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll: true,
-                        reportDir: 'execution-summary',
-                        reportFiles: 'summary.html',
-                        reportName: 'Execution Summary Report',
-                        reportTitles: ''
-                    ])
+                   publishHTML(target: [
+                       allowMissing: false,
+                       alwaysLinkToLastBuild: false,
+                       keepAll: true,
+                       reportDir: 'execution-summary',
+                       reportFiles: 'ExecutionSummaryReport_*-AM.html',
+                       reportName: 'Execution Summary Report',
+                       reportTitles: ''
+                   ])
                 }
             }
         }
