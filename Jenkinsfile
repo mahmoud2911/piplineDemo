@@ -14,8 +14,11 @@ pipeline {
         stage('Build and Generate Allure Report') {
             steps {
                 script {
-                    def mavenCmd = isUnix() ? 'mvn' : 'mvn.bat'
-                    sh "${mavenCmd} -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression"
+                    if (isUnix()) {
+                        sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    } else {
+                        bat 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    }
                 }
             }
         }
