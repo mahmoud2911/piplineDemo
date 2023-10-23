@@ -9,9 +9,11 @@ pipeline {
         }
         stage('Build') {
             steps {
+                script {
                     def mvnHome = 'C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2023.1.2/plugins/maven/lib/maven3'  // Update this path to your Maven installation
                     sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
                 }
+            }
         }
     }
 }
