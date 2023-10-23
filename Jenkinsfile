@@ -12,7 +12,7 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]])
             }
         }
-        stage('Build and Generate Allure Report') {
+        stage('Build and Generate Reports') {
             steps {
                 script {
                     if (isUnix()) {
@@ -23,7 +23,7 @@ pipeline {
                 }
             }
         }
-        stage('Publish Allure Report') {
+        stage('Publish Allure and Execution Summary Reports') {
             steps {
                 script {
                     // Publish Allure report from the 'allure-results' directory in the project root
@@ -34,38 +34,27 @@ pipeline {
                             [path: 'allure-results']
                         ]
                     ])
-                }
-            }
-        }
-        stage('Execution Summary Report') {
-            steps {
-                script {
+
                     // Publish the execution summary report from the 'execution-summary' directory in the project root
-                   publishHTML(target: [
-                       allowMissing: false,
-                       alwaysLinkToLastBuild: false,
-                       keepAll: true,
-                       reportDir: 'execution-summary',
-                       reportFiles: 'ExecutionSummaryReport_*-AM.html',
-                       reportName: 'Execution Summary Report',
-                       reportTitles: ''
-                   ])
+                    publishHTML(target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll: true,
+                        reportDir: 'execution-summary',
+                        reportFiles: 'ExecutionSummaryReport_*-AM.html',
+                        reportName: 'Execution Summary Report',
+                        reportTitles: ''
+                    ])
                 }
-            }
-        }
-        stage('Archive Artifacts') {
-            steps {
-                // Archive Allure reports
-                archiveArtifacts artifacts: 'allure-results/*', allowEmptyArchive: true
             }
         }
     }
     post {
         always {
-            emailext subject: "Allure Report for your build",
-                body: "Find attached the Allure report for your build.",
+            emailext subject: "Test Report for your build",
+                body: "Find attached the test report for your build.",
                 attachLog: true,
-                attachmentsPattern: 'allure-results/*',
+                attachmentsPattern: 'allure-results/*,execution-summary/ExecutionSummaryReport_*-AM.html',
                 to: "mahmoud.ahmed@foodics.com"
         }
     }
