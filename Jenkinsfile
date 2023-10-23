@@ -8,7 +8,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Check out the code from the GitHub repository using the token
-                checkout([$class: 'GitSCM', branches: [[name: '*/Dashboard']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]])
             }
         }
         stage('Build and Generate Allure Report') {
