@@ -31,7 +31,7 @@ pipeline {
                     // Publish Allure report from the 'allure-results' directory in the project root
                     allure([
                         includeProperties: true,
-                        jdk: '',
+                        jdk: 'Java 9.0.4',
                         results: [
                             [path: 'allure-results']
                         ]
