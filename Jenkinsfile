@@ -67,7 +67,7 @@ pipeline {
                             allowMissing: false,
                             alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            reportDir: "execution-summary-${browser}",
+                            reportDir: "execution-summary/execution-summary-${browser}",
                             reportFiles: "ExecutionSummaryReport_*.html",
                             reportName: "Execution Summary Report for ${browser}",
                             reportTitles: ''
