@@ -51,16 +51,15 @@ pipeline {
                 }
             }
         }
+    } // Close the stages block here
 
-        post {
-            always {
-                emailext subject: 'Test Report for your build',
-                body: 'Find attached the test report for your build.',
-                attachLog: true,
-                attachmentsPattern: 'allure-results/*,execution-summary/*',
-                to: 'mahmoud.ahmed@foodics.com'
-            }
+    post { // This section should be at the pipeline level
+        always {
+            emailext subject: 'Test Report for your build',
+            body: 'Find attached the test report for your build.',
+            attachLog: true,
+            attachmentsPattern: 'allure-results/*,execution-summary/*',
+            to: 'mahmoud.ahmed@foodics.com'
         }
     }
-
 }
