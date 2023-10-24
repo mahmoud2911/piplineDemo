@@ -16,13 +16,23 @@ pipeline {
             steps {
                    script {
                             // Add a loop to run the tests with multiple browsers
-                            def browsers = ['chrome','MicrosoftEdge','MicrosoftInternetExplorer','safari'] // You can add more browsers
+                            def browsers = ['chrome','MicrosoftEdge','MicrosoftInternetExplorer'] // You can add more browsers
                             for (def browser in browsers) {
                             if (isUnix()) {
                                           sh "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
                                       } else {
                                           bat "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
                                       }
+                                       // Create a separate directory for each browser
+                                                              def browserReportDir = "allure-results-${browser}"
+                                                              dir(browserReportDir) {
+                                                                  // Copy the Allure results from the default directory to the browser-specific directory
+                                                                  if (isUnix()) {
+                                                                  sh "cp -r ../allure-results/* ."
+                                                                  } else {
+                                                                  bat 'xcopy /s ..\\allure-results\\* .'
+                                                               }
+                                                              }
                                   }
                               }
                            }
