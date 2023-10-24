@@ -4,8 +4,6 @@ pipeline {
         // Define the Maven tool and version to use
         maven 'Maven 3.9.5'
         allure 'Allure 2.24.1'
-       // jdk 'Java 7u80'
-
     }
     stages {
         stage('Checkout') {
@@ -16,14 +14,18 @@ pipeline {
         }
         stage('Build and Generate Reports') {
             steps {
-                script {
-                    if (isUnix()) {
-                        sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
-                    } else {
-                        bat 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
-                    }
-                }
-            }
+                   script {
+                            // Add a loop to run the tests with multiple browsers
+                            def browsers = ['chrome','MicrosoftEdge','MicrosoftInternetExplorer','safari'] // You can add more browsers
+                            for (def browser in browsers) {
+                            if (isUnix()) {
+                                          sh "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
+                                      } else {
+                                          bat "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
+                                      }
+                                  }
+                              }
+                           }
         }
         stage('Publish Allure and Execution Summary Reports') {
             steps {
@@ -36,14 +38,13 @@ pipeline {
                             [path: 'allure-results']
                         ]
                     ])
-
                     // Publish the execution summary report from the 'execution-summary' directory in the project root
                     publishHTML(target: [
                         allowMissing: false,
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
                         reportDir: 'execution-summary',
-                        reportFiles: 'ExecutionSummaryReport_*-AM.html',
+                        reportFiles: 'ExecutionSummaryReport_*.html',
                         reportName: 'Execution Summary Report',
                         reportTitles: ''
                     ])
