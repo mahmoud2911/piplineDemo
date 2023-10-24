@@ -33,7 +33,7 @@ pipeline {
                             if (isUnix()) {
                                 sh "cp -r ../allure-results/* ."
                             } else {
-                                bat 'xcopy /s /I ..\\allure-results\\* .'
+                                bat 'xcopy /s /Y /I ..\\allure-results\\* .'
                             }
                         }
 
@@ -44,7 +44,7 @@ pipeline {
                             if (isUnix()) {
                                 sh "cp -r ../execution-summary/* ."
                             } else {
-                                bat 'xcopy /s /I ..\\execution-summary\\* .'
+                                bat 'xcopy /s /Y /I ..\\execution-summary\\* .'
                             }
                         }
                     }
