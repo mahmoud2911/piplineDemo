@@ -8,23 +8,23 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM',
-                    branches: [[name: '*/master']],
-                    doGenerateSubmoduleConfigurations: false,
-                    extensions: [],
-                    submoduleCfg: [],
-                    userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]
-                ])
+                branches: [[name: '*/master']],
+                doGenerateSubmoduleConfigurations: false,
+                extensions: [],
+                submoduleCfg: [],
+                userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]
+                         ])
             }
         }
         stage('Build and Generate Reports') {
             steps {
                 script {
 
-                        if (isUnix()) {
-                            sh "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
-                        } else {
-                            bat "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
-                        }
+                    if (isUnix()) {
+                        sh "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
+                    } else {
+                        bat "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
+                    }
                 }
             }
         }
@@ -39,26 +39,28 @@ pipeline {
                         ]
                     ])
 
-                        publishHTML(target: [
-                            allowMissing: false,
-                            alwaysLinkToLastBuild: false,
-                            keepAll: true,
-                            reportDir: "execution-summary",
-                            reportFiles: "ExecutionSummaryReport_*.html",
-                            reportName: "Execution Summary Report",
-                            reportTitles: ''
-                        ])
-                    }
+                    publishHTML(target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll: true,
+                        reportDir: "execution-summary",
+                        reportFiles: "ExecutionSummaryReport_*.html",
+                        reportName: "Execution Summary Report",
+                        reportTitles: ''
+                    ])
                 }
+            }
         }
-    }
-    post {
-        always {
-            emailext subject: 'Test Report for your build',
+
+        post {
+            always {
+                emailext subject: 'Test Report for your build',
                 body: 'Find attached the test report for your build.',
                 attachLog: true,
                 attachmentsPattern: 'allure-results/*,execution-summary/*',
                 to: 'mahmoud.ahmed@foodics.com'
+            }
         }
     }
+
 }
