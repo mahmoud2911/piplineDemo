@@ -19,11 +19,10 @@ pipeline {
         stage('Build and Generate Reports') {
             steps {
                 script {
-
                     if (isUnix()) {
-                        sh "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
+                        sh "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression"
                     } else {
-                        bat "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
+                        bat "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression"
                     }
                 }
             }
