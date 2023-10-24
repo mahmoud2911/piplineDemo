@@ -19,35 +19,12 @@ pipeline {
         stage('Build and Generate Reports') {
             steps {
                 script {
-                    def browsers = ['chrome', 'MicrosoftEdge', 'MicrosoftInternetExplorer']
 
-                    for (def browser in browsers) {
                         if (isUnix()) {
                             sh "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
                         } else {
                             bat "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browser}"
                         }
-
-                        def browserReportDir = "allure-results-${browser}"
-                        dir(browserReportDir) {
-                            if (isUnix()) {
-                                sh "cp -r ../allure-results/* ."
-                            } else {
-                                bat 'xcopy /s /Y /I ..\\allure-results\\* .'
-                            }
-                        }
-
-                        // Copy or move your execution summary reports to the 'execution-summary' directory
-                        // Ensure the report files for each browser have unique names to avoid overwriting
-                        def executionSummaryDir = "execution-summary-${browser}"
-                        dir(executionSummaryDir) {
-                            if (isUnix()) {
-                                sh "cp -r ../execution-summary/* ."
-                            } else {
-                                bat 'xcopy /s /Y /I ..\\execution-summary\\* .'
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -62,19 +39,17 @@ pipeline {
                         ]
                     ])
 
-                    for (def browser in browsers) {
                         publishHTML(target: [
                             allowMissing: false,
                             alwaysLinkToLastBuild: false,
                             keepAll: true,
-                            reportDir: "execution-summary/execution-summary-${browser}",
+                            reportDir: "execution-summary",
                             reportFiles: "ExecutionSummaryReport_*.html",
-                            reportName: "Execution Summary Report for ${browser}",
+                            reportName: "Execution Summary Report",
                             reportTitles: ''
                         ])
                     }
                 }
-            }
         }
     }
     post {
