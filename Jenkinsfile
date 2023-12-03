@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        // Set the timezone (example: America/New_York)
-        TZ = 'America/New_York'
+        // Set the timezone
+        TZ = 'Africa/Cairo'
     }
     tools {
         // Define the Maven tool and version to use
