@@ -1,55 +1,36 @@
 pipeline {
     agent any
+    environment {
+        // Set the timezone (example: America/New_York)
+        TZ = 'America/New_York'
+    }
     tools {
+        // Define the Maven tool and version to use
         maven 'Maven 3.9.5'
         allure 'Allure 2.24.1'
-        dockerTool 'Docker LTS' // You may need to replace 'docker' with the actual tool name as configured in your Jenkins instance
+    }
+    triggers {
+        cron('0 0 * * *')  // Schedule the pipeline to run daily at 12 AM
     }
     stages {
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM',
-                branches: [[name: '*/master']],
-                doGenerateSubmoduleConfigurations: false,
-                extensions: [],
-                submoduleCfg: [],
-                userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]
-                         ])
+                          branches: [[name: '*/master']],
+                          doGenerateSubmoduleConfigurations: false,
+                          extensions: [],
+                          submoduleCfg: [],
+                          userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]
+                ])
             }
         }
-        stage('Run Tests on Selenium Grid') {
+        stage('Build and Generate Reports') {
             steps {
                 script {
-                    def browsers = ['chrome', 'MicrosoftEdge']
-                    for (def browser in browsers) {
-                        // Start a Docker container for the selected browser
-                        def browserContainer = "selenium/node-${browser}:4.1.1"
-                        def browserName = browser == 'chrome' ? 'google-chrome' : 'MicrosoftEdge'
-                        def containerName = "${browser}-node"
-                        if (isUnix()) {
-                            sh "docker pull ${browserContainer}"
-                            sh "docker run -d --link selenium-hub:hub --name ${containerName} -v /dev/shm:/dev/shm ${browserContainer}"
-                        } else {
-                            bat "docker pull ${browserContainer}"
-                            bat "docker run -d --link selenium-hub:hub --name ${containerName} -v /dev/shm:/dev/shm ${browserContainer}"
-                        }
-
-                        // Run your tests on the current browser
-                        if (isUnix()) {
-                            sh "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browserName}"
-                        } else {
-                            bat "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DtargetBrowserName=${browserName}"
-                        }
-                        if (isUnix()) { // Stop and remove the container
-                            sh "docker stop ${containerName}"
-                            sh "docker rm ${containerName}"
-                        } else {
-                            // Stop and remove the container
-                            bat "docker stop ${containerName}"
-                            bat "docker rm ${containerName}"
-                        }
-
-
+                    if (isUnix()) {
+                        sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    } else {
+                        bat 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     }
                 }
             }
@@ -64,28 +45,32 @@ pipeline {
                             [path: 'allure-results']
                         ]
                     ])
-
                     publishHTML(target: [
                         allowMissing: false,
                         alwaysLinkToLastBuild: false,
                         keepAll: true,
-                        reportDir: "execution-summary",
-                        reportFiles: "ExecutionSummaryReport_*.html",
-                        reportName: "Execution Summary Report",
+                        reportDir: 'execution-summary',
+                        reportFiles: 'ExecutionSummaryReport_*.html',
+                        reportName: 'Execution Summary Report',
                         reportTitles: ''
                     ])
                 }
             }
         }
-    } // Close the stages block here
-
-    post { // This section should be at the pipeline level
+        stage('Archive Old Reports') {
+            steps {
+                archiveArtifacts(artifacts: 'execution-summary/ExecutionSummaryReport_*-AM.html', allowEmptyArchive: true)
+                archiveArtifacts(artifacts: 'allure-results/*', allowEmptyArchive: true)
+            }
+        }
+    }
+    post {
         always {
-            emailext subject: 'Test Report for your build',
-            body: 'Find attached the test report for your build.',
-            attachLog: true,
-            attachmentsPattern: 'allure-results/*,execution-summary/*',
-            to: 'mahmoud.ahmed@foodics.com'
+            emailext subject: "Test Report for your build",
+                body: "Find attached the test report for your build.",
+                attachLog: true,
+                attachmentsPattern: 'allure-results/*,execution-summary/ExecutionSummaryReport_*-AM.html',
+                to: "mahmoud.ahmed@foodics.com"
         }
     }
 }
