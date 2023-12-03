@@ -10,7 +10,7 @@ pipeline {
         allure 'Allure 2.24.1'
     }
     triggers {
-        cron('0 0 * * *')  // Schedule the pipeline to run daily at 12 AM
+        cron('45 15 * * *')  // Schedule the pipeline to run daily at 12 AM
     }
     stages {
         stage('Checkout') {
