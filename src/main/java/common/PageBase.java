@@ -40,12 +40,14 @@ public class PageBase {
         driver.element().select(element, text);
         return this;
     }
+
     public PageBase selectElementFromDropDownByIndex(By element, int index) {
         WebElement dropdownElement = driver.getDriver().findElement(element);
         Select select = new Select(dropdownElement);
         select.selectByIndex(index);
         return this;
     }
+
     public PageBase switchToNewOpenedTab() {
         String parentWindowHandle = driver.getDriver().getWindowHandle();
         for (String windowHandle : driver.getDriver().getWindowHandles()) {
@@ -81,6 +83,7 @@ public class PageBase {
         driver.browser().assertThat().url().isEqualTo(url).perform();
         return this;
     }
+
     public PageBase assertCurrentPageUrlContains(String url) {
         driver.browser().assertThat().url().contains(url).perform();
         return this;

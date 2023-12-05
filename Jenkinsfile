@@ -1,36 +1,32 @@
 pipeline {
     agent any
-    environment {
-        // Set the timezone
-        TZ = 'Africa/Cairo'
-    }
     tools {
         // Define the Maven tool and version to use
         maven 'Maven 3.9.5'
         allure 'Allure 2.24.1'
-    }
-    triggers {
-        cron('0 16 * * *')  // Schedule the pipeline to run at 4:00 PM every day
+        dockerTool 'Docker LTS'
     }
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM',
-                          branches: [[name: '*/master']],
-                          doGenerateSubmoduleConfigurations: false,
-                          extensions: [],
-                          submoduleCfg: [],
-                          userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]
-                ])
-            }
-        }
+                    checkout([$class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]
+                             ])
+                }
+
         stage('Build and Generate Reports') {
             steps {
                 script {
                     if (isUnix()) {
-                        sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                        sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DexecutionAddress=dockerized  -DtargetOperatingSystem=LINUX'
+
+
                     } else {
-                        bat 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                        bat 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DexecutionAddress=dockerized  -DtargetOperatingSystem=LINUX'
                     }
                 }
             }
@@ -38,6 +34,7 @@ pipeline {
         stage('Publish Allure and Execution Summary Reports') {
             steps {
                 script {
+                    // Publish Allure report from the 'allure-results' directory in the project root
                     allure([
                         includeProperties: true,
                         jdk: '',
@@ -45,6 +42,7 @@ pipeline {
                             [path: 'allure-results']
                         ]
                     ])
+                    // Publish the execution summary report from the 'execution-summary' directory in the project root
                     publishHTML(target: [
                         allowMissing: false,
                         alwaysLinkToLastBuild: false,
@@ -59,6 +57,7 @@ pipeline {
         }
         stage('Archive Old Reports') {
             steps {
+                // Archive old reports from previous builds
                 archiveArtifacts(artifacts: 'execution-summary/ExecutionSummaryReport_*-AM.html', allowEmptyArchive: true)
                 archiveArtifacts(artifacts: 'allure-results/*', allowEmptyArchive: true)
             }

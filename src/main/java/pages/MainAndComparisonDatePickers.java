@@ -26,10 +26,10 @@ public class MainAndComparisonDatePickers extends PageBase {
     final private By comparisonDateForwardCalenderCursor = By.xpath("(//span[text()='>'])[2]");
     final private By monthYearMainDatePickerText = By.xpath("(//span[@class='px-2 cursor-pointer']/following-sibling::span)[1]");
     final private By monthYearComparisonDatePickerText = By.xpath("(//span[@class='px-2 cursor-pointer']/following-sibling::span)[3]");
-    final private By mainDatePicker = By.xpath("(//div[contains(@class,'datetime-picker inline')]//button)[1]");
-    final private By comparisonDatePicker = By.xpath("(//div[contains(@class,'datetime-picker inline')]//button)[2]");
-    final private By mainDateText = By.xpath("(//button[contains(@class,'btn btn-white')]//span)[1]");
-    final private By comparisonDateText = By.xpath("(//button[contains(@class,'btn btn-white')]//span)[2]");
+    final private By mainDatePicker = By.id("datepicker.trigger");
+    final private By comparisonDatePicker = By.xpath("(//button[@id='datepicker.trigger'])[2]");
+    final private By mainDateText = By.xpath("(//div[contains(@class,'flex items-center')]//span)[1]");
+    final private By comparisonDateText = By.xpath("(//div[contains(@class,'flex items-center')]//span)[3]");
     final private By mainDatePickerCalenderViewed = By.xpath("(//div[contains(@class,'cal p-3')])[1]");
     final private By comparisonDatePickerCalenderViewed = By.xpath("(//div[contains(@class,'cal p-3')])[2]");
     private By datePicker, monthYearText, forwardCursor, backCursor, targetLocator, calenderViewed;
