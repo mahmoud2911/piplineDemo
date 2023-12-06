@@ -7,8 +7,19 @@ pipeline {
     }
 
     stages {
-        // ... (your existing stages remain unchanged)
-
+    stage('Build and Generate Reports') {
+            steps {
+                echo 'Building and generating reports...'
+                script {
+                   def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    if (isUnix()) {
+                        sh mavenCommand
+                    } else {
+                        bat mavenCommand
+                    }
+                }
+            }
+        }
         stage('Publish Allure and Execution Summary Reports') {
             steps {
                 echo 'Publishing Allure and execution summary reports...'
