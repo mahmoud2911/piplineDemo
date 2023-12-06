@@ -68,7 +68,7 @@ pipeline {
                 body: "Find attached the test report for your build.",
                 attachLog: true,
                 attachmentsPattern: 'allure-results/*,execution-summary/ExecutionSummaryReport_*-AM.html',
-                to: "mahmoud.ahmed@foodics.com"
+                to: "m666245@gmail.com"
         }
     }
 }
