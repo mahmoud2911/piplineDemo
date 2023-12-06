@@ -34,14 +34,22 @@ pipeline {
                 }
             }
         }
+
         stage('Generate Allure Report') {
-                    steps {
-                        script {
-                            // Run the Allure command to generate the report
-                            bat 'allure generate allure-results -o allure-report'
-                        }
+            steps {
+                script {
+                    def allureHome = tool name: 'Allure 2.24.1', type: 'io.qameta.allure.jenkins.tools.AllureCommandlineInstallation'
+                    def allureCommand = "${allureHome}/bin/allure"
+
+                    // Run the Allure command to generate the report
+                    if (isUnix()) {
+                        sh "${allureCommand} generate allure-results -o allure-report"
+                    } else {
+                        bat "${allureCommand} generate allure-results -o allure-report"
                     }
                 }
+            }
+        }
 
         stage('Publish Allure and Execution Summary Reports') {
             steps {
@@ -66,12 +74,13 @@ pipeline {
                 }
             }
         }
-            stage('Archive Reports') {
-                    steps {
-                        echo 'Archiving reports...'
-                        archiveArtifacts(artifacts: 'execution-summary/*.html,allure-results/*', allowEmptyArchive: true)
-                    }
-                }
+
+        stage('Archive Reports') {
+            steps {
+                echo 'Archiving reports...'
+                archiveArtifacts(artifacts: 'execution-summary/*.html,allure-results/*', allowEmptyArchive: true)
+            }
+        }
     }
 
     post {
