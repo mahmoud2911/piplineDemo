@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Building and generating reports...'
                 script {
-                    def mavenCommand = isUnix() ? 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression' : 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     if (isUnix()) {
                         sh mavenCommand
                     } else {
@@ -34,39 +34,34 @@ pipeline {
                 }
             }
         }
-
         stage('Publish Allure to GitHub Pages') {
             steps {
                 echo 'Publishing Allure results to GitHub Pages...'
                 script {
-                    def removeCommand = isUnix() ? 'rm -rf allure-report' : 'rmdir /s /q allure-report'
-                    def moveCommand = isUnix() ? 'mv allure-report/* docs/' : 'move allure-report\\* docs\\'
+                    def removeCommand = isUnix() ? 'rm -rf allure-results' : 'rmdir /s /q allure-results'
+                    def moveCommand = isUnix() ? 'mv allure-results/* .' : 'move allure-results\\* .'
+                    def gitCmdPrefix = isUnix() ? 'sh' : 'bat'
 
                     // Run remove and move commands
+                    "${gitCmdPrefix} ${removeCommand}"
+
+                    allure([
+                        includeProperties: true,
+                        jdk: '',
+                        results: [
+                            [path: 'allure-results']
+                        ]
+                    ])
+
+                    // Create "docs" directory if it doesn't exist
                     if (isUnix()) {
-                        sh removeCommand
-                        allure([
-                            includeProperties: true,
-                            jdk: '',
-                            results: [
-                                [path: 'allure-results']
-                            ]
-                        ])
                         sh 'mkdir -p docs'
-                        sh "if [ ! -d docs ]; then mkdir docs; fi" // Create docs directory only if it doesn't exist
-                        sh moveCommand
                     } else {
-                        bat removeCommand
-                        allure([
-                            includeProperties: true,
-                            jdk: '',
-                            results: [
-                                [path: 'allure-results']
-                            ]
-                        ])
-                        bat 'if not exist docs mkdir docs' // Create docs directory only if it doesn't exist
-                        bat moveCommand
+                        bat 'if not exist docs mkdir docs'
                     }
+
+                    // Run move command
+                    "${gitCmdPrefix} ${moveCommand}"
 
                     // Run Git commands
                     def gitCommands = [
@@ -77,32 +72,29 @@ pipeline {
                         'git rm -r docs/*',
                         'git commit -m "Remove old Allure reports"',
                         'git push -u origin master',
-                        'git add docs/*',
+                        'git add *',
                         'git commit -m "Add latest Allure reports"',
                         'git push -u origin master'
                     ]
 
                     gitCommands.each { gitCmd ->
-                        if (isUnix()) {
-                            sh gitCmd
-                        } else {
-                            bat gitCmd
-                        }
+                        "${gitCmdPrefix} ${gitCmd}"
                     }
                 }
             }
         }
-    }
 
-    post {
-        always {
-            script {
-                def allureReportUrl = "https://github.com/mahmoud2911/piplineDemo/"
-                echo "Sending email with a link to the Allure report: ${allureReportUrl}"
-                emailext subject: "Test Report for your build",
-                    body: "Find the Allure report here: ${allureReportUrl}",
-                    to: "m666245@gmail.com"
-            }
-        }
-    }
-}
+      }
+
+      post {
+          always {
+              script {
+                  def allureReportUrl = "https://github.com/mahmoud2911/piplineDemo/"
+                  echo "Sending email with a link to the Allure report: ${allureReportUrl}"
+                  emailext subject: "Test Report for your build",
+                      body: "Find the Allure report here: ${allureReportUrl}",
+                      to: "m666245@gmail.com"
+              }
+          }
+      }
+  }
