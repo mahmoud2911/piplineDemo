@@ -25,12 +25,8 @@ pipeline {
             steps {
                 echo 'Building and generating reports...'
                 script {
-                    def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
-                    if (isUnix()) {
-                        sh mavenCommand
-                    } else {
-                        bat mavenCommand
-                    }
+                    def mavenCommand = isUnix() ? 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression' : 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    sh mavenCommand
                 }
             }
         }
@@ -42,6 +38,8 @@ pipeline {
                     def removeCommand = isUnix() ? 'rm -rf allure-report' : 'rmdir /s /q allure-report'
                     def moveCommand = isUnix() ? 'mv allure-report/* docs/' : 'move allure-report\\* docs\\'
                     def gitCommands = [
+                        'git config user.name "Your Name"',
+                        'git config user.email "your.email@example.com"',
                         'git init',
                         'git remote add origin https://github.com/mahmoud2911/piplineDemo.git',
                         'git rm -r docs/*',
@@ -53,16 +51,29 @@ pipeline {
                     ]
 
                     // Run remove and move commands
-                    bat removeCommand
-                    allure([
-                        includeProperties: true,
-                        jdk: '',
-                        results: [
-                            [path: 'allure-results']
-                        ]
-                    ])
-                    bat 'mkdir -p docs'
-                    bat moveCommand
+                    if (isUnix()) {
+                        sh removeCommand
+                        allure([
+                            includeProperties: true,
+                            jdk: '',
+                            results: [
+                                [path: 'allure-results']
+                            ]
+                        ])
+                        sh 'mkdir -p docs'
+                        sh moveCommand
+                    } else {
+                        bat removeCommand
+                        allure([
+                            includeProperties: true,
+                            jdk: '',
+                            results: [
+                                [path: 'allure-results']
+                            ]
+                        ])
+                        bat 'mkdir docs'
+                        bat moveCommand
+                    }
 
                     // Run Git commands
                     gitCommands.each { gitCmd ->
@@ -80,7 +91,7 @@ pipeline {
     post {
         always {
             script {
-                def allureReportUrl = "https://github.com/mahmoud2911/piplineDemo/"
+                def allureReportUrl = "https://mahmoud2911.github.io/piplineDemo/"
                 echo "Sending email with a link to the Allure report: ${allureReportUrl}"
                 emailext subject: "Test Report for your build",
                     body: "Find the Allure report here: ${allureReportUrl}",
