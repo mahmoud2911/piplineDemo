@@ -53,6 +53,7 @@ pipeline {
                             ]
                         ])
                         sh 'mkdir -p docs'
+                        sh "if [ ! -d docs ]; then mkdir docs; fi" // Create docs directory only if it doesn't exist
                         sh moveCommand
                     } else {
                         bat removeCommand
@@ -63,7 +64,7 @@ pipeline {
                                 [path: 'allure-results']
                             ]
                         ])
-                        bat 'mkdir docs'
+                        bat 'if not exist docs mkdir docs' // Create docs directory only if it doesn't exist
                         bat moveCommand
                     }
 
