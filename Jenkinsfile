@@ -58,6 +58,12 @@ pipeline {
                 }
             }
         }
+            stage('Archive Reports') {
+                    steps {
+                        echo 'Archiving reports...'
+                        archiveArtifacts(artifacts: 'execution-summary/*.html,allure-results/*', allowEmptyArchive: true)
+                    }
+                }
     }
 
     post {
@@ -67,7 +73,7 @@ pipeline {
                     body: 'Please find attached the Allure and Execution Summary reports.',
                     mimeType: 'text/html',
                     subject: 'Test Execution Report',
-                    to: 'your-email@example.com'
+                    to: 'mahmoud.ahmed@foodics.com'
         }
     }
 }
