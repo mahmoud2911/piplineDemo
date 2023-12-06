@@ -20,6 +20,7 @@ pipeline {
                 ])
             }
         }
+
         stage('Build and Generate Reports') {
             steps {
                 echo 'Building and generating reports...'
@@ -33,6 +34,7 @@ pipeline {
                 }
             }
         }
+
         stage('Publish Allure and Execution Summary Reports') {
             steps {
                 echo 'Publishing Allure and execution summary reports...'
@@ -56,37 +58,16 @@ pipeline {
                 }
             }
         }
-
-        stage('Archive Old Reports') {
-            steps {
-                echo 'Archiving old reports...'
-                archiveArtifacts(artifacts: 'execution-summary/*', allowEmptyArchive: true)
-                archiveArtifacts(artifacts: 'allure-results/*', allowEmptyArchive: true)
-            }
-        }
     }
 
     post {
         always {
-            script {
-                def gitRepoUrl = 'https://github.com/mahmoud2911/piplineDemo' // Replace with your actual repository URL
-                def allureReportRelativePath = 'allure-report/index.html'
-                def executionSummaryRelativePath = 'execution-summary/ExecutionSummaryReport_*.html'
-
-                def allureReportUrl = "${gitRepoUrl}/blob/master/${allureReportRelativePath}"
-                def executionSummaryUrl = "${gitRepoUrl}/blob/master/${executionSummaryRelativePath}"
-
-                echo "Sending email with links to the Allure report and Execution Summary: ${allureReportUrl}, ${executionSummaryUrl}"
-
-                emailext subject: "Test Report for your build",
-                        body: """
-                        Find the Allure report here: ${allureReportUrl}
-                        Find the Execution Summary report here: ${executionSummaryUrl}
-                        """,
-                        to: "mahmoud.ahmed@foodics.com",
-                        mimeType: 'text/html',
-                        attachmentsPattern: 'allure-results/**/*,execution-summary/*.html'
-            }
+            echo 'Sending email with reports...'
+            emailext attachmentsPattern: 'execution-summary/*.html,allure-results/*',
+                    body: 'Please find attached the Allure and Execution Summary reports.',
+                    mimeType: 'text/html',
+                    subject: 'Test Execution Report',
+                    to: 'your-email@example.com'
         }
     }
 }
