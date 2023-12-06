@@ -7,11 +7,11 @@ pipeline {
     }
 
     stages {
-    stage('Build and Generate Reports') {
+        stage('Build and Generate Reports') {
             steps {
                 echo 'Building and generating reports...'
                 script {
-                   def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     if (isUnix()) {
                         sh mavenCommand
                     } else {
@@ -44,25 +44,31 @@ pipeline {
             }
         }
 
-        // ... (your existing stages remain unchanged)
+        stage('Archive Old Reports') {
+            steps {
+                echo 'Archiving old reports...'
+                archiveArtifacts(artifacts: 'execution-summary/ExecutionSummaryReport_*-AM.html', allowEmptyArchive: true)
+                archiveArtifacts(artifacts: 'allure-results/*', allowEmptyArchive: true)
+            }
+        }
     }
 
     post {
         always {
             script {
                 def allureReportUrl = "${BUILD_URL}allure"
-                def executionSummaryUrl = "${BUILD_URL}execution-summary/ExecutionSummaryReport_1.html" // Adjust the number as needed
+                def executionSummaryUrl = "${BUILD_URL}Execution_20Summary_20Report/" // Adjust the number as needed
                 echo "Sending email with links to the Allure report and Execution Summary: ${allureReportUrl}, ${executionSummaryUrl}"
                 // Attach only necessary files for Allure report and Execution Summary
-                attachmentsPattern = 'allure-results/index.html,execution-summary/*.html'
+                //  attachmentsPattern = 'allure-results/index.html,execution-summary/*.html'
 
                 emailext subject: "Test Report for your build",
-                    body: """
-                    Find the Allure report here: ${allureReportUrl}
-                    Find the Execution Summary report here: ${executionSummaryUrl}
-                    """,
-                    to: "m666245@gmail.com",
-                    attachmentsPattern: attachmentsPattern
+                body: """
+                Find the Allure report here: ${allureReportUrl}
+                Find the Execution Summary report here: ${executionSummaryUrl}
+                """,
+                to: "mahmoud.ahmed@foodics.com",
+                //attachmentsPattern: attachmentsPattern
             }
         }
     }
