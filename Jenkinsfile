@@ -7,6 +7,19 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code...'
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]
+                ])
+            }
+        }
         stage('Build and Generate Reports') {
             steps {
                 echo 'Building and generating reports...'
@@ -47,7 +60,7 @@ pipeline {
         stage('Archive Old Reports') {
             steps {
                 echo 'Archiving old reports...'
-                archiveArtifacts(artifacts: 'execution-summary/ExecutionSummaryReport_*-AM.html', allowEmptyArchive: true)
+                archiveArtifacts(artifacts: 'execution-summary/*', allowEmptyArchive: true)
                 archiveArtifacts(artifacts: 'allure-results/*', allowEmptyArchive: true)
             }
         }
@@ -60,7 +73,7 @@ pipeline {
                 def executionSummaryUrl = "${BUILD_URL}Execution_20Summary_20Report/" // Adjust the number as needed
                 echo "Sending email with links to the Allure report and Execution Summary: ${allureReportUrl}, ${executionSummaryUrl}"
                 // Attach only necessary files for Allure report and Execution Summary
-                //  attachmentsPattern = 'allure-results/index.html,execution-summary/*.html'
+                 attachmentsPattern = 'allure-results/index.html,execution-summary/*.html'
 
                 emailext subject: "Test Report for your build",
                 body: """
@@ -68,7 +81,7 @@ pipeline {
                 Find the Execution Summary report here: ${executionSummaryUrl}
                 """,
                 to: "mahmoud.ahmed@foodics.com",
-                //attachmentsPattern: attachmentsPattern
+                attachmentsPattern: attachmentsPattern
             }
         }
     }
