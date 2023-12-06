@@ -80,7 +80,7 @@ pipeline {
     post {
         always {
             script {
-                def allureReportUrl = "https://mahmoud2911.github.io/piplineDemo/"
+                def allureReportUrl = "https://github.com/mahmoud2911/piplineDemo/"
                 echo "Sending email with a link to the Allure report: ${allureReportUrl}"
                 emailext subject: "Test Report for your build",
                     body: "Find the Allure report here: ${allureReportUrl}",
