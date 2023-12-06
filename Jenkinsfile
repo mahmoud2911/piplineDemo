@@ -53,7 +53,7 @@ pipeline {
                     ]
 
                     // Run remove and move commands
-                    sh removeCommand
+                    bat removeCommand
                     allure([
                         includeProperties: true,
                         jdk: '',
@@ -61,8 +61,8 @@ pipeline {
                             [path: 'allure-results']
                         ]
                     ])
-                    sh 'mkdir -p docs'
-                    sh moveCommand
+                    bat 'mkdir -p docs'
+                    bat moveCommand
 
                     // Run Git commands
                     gitCommands.each { gitCmd ->
