@@ -24,13 +24,10 @@ pipeline {
         stage('Build and Generate Reports') {
             steps {
                 echo 'Building and generating reports...'
-               script {
-                   if (isUnix()) {
-                       sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
-                   } else {
-                       bat 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
-                   }
-               }
+                script {
+                    def mavenCommand = isUnix() ? 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression' : 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    sh mavenCommand
+                }
             }
         }
 
@@ -73,7 +70,7 @@ pipeline {
     post {
         always {
             script {
-                def allureReportUrl = "https://github.com/mahmoud2911/piplineDemo/docs"
+                def allureReportUrl = "https://mahmoud2911.github.io/piplineDemo/"
                 echo "Sending email with a link to the Allure report: ${allureReportUrl}"
                 emailext subject: "Test Report for your build",
                     body: "Find the Allure report here: ${allureReportUrl}",
