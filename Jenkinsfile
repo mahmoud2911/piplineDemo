@@ -51,12 +51,8 @@ pipeline {
                         bat "${allureCommand} generate allure-results -o allure-report"
                     }
                 }
-            }
-        }
 
-        always {
-            echo 'Publishing Allure and Execution Summary Reports...'
-            script {
+                echo 'Publishing Allure and Execution Summary Reports...'
                 allure([
                     includeProperties: true,
                     jdk: '',
@@ -74,18 +70,14 @@ pipeline {
                     reportTitles: ''
                 ])
                 archiveArtifacts(artifacts: 'execution-summary/*.html,allure-report/*', allowEmptyArchive: true)
-            }
-        }
-    }
 
-    post {
-        always {
-            echo 'Sending email with reports...'
-            emailext attachmentsPattern: 'execution-summary/*.html,allure-report/index.html',
-                    body: 'Please find attached the Allure and Execution Summary reports.',
-                    mimeType: 'text/html',
-                    subject: 'Test Execution Report',
-                    to: 'mahmoud.ahmed@foodics.com'
+                echo 'Sending email with reports...'
+                emailext attachmentsPattern: 'execution-summary/*.html,allure-report/index.html',
+                        body: 'Please find attached the Allure and Execution Summary reports.',
+                        mimeType: 'text/html',
+                        subject: 'Test Execution Report',
+                        to: 'mahmoud.ahmed@foodics.com'
+            }
         }
     }
 }
