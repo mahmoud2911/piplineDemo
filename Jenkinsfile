@@ -34,6 +34,14 @@ pipeline {
                 }
             }
         }
+        stage('Generate Allure Report') {
+                    steps {
+                        script {
+                            // Run the Allure command to generate the report
+                            bat 'allure generate allure-results -o allure-report'
+                        }
+                    }
+                }
 
         stage('Publish Allure and Execution Summary Reports') {
             steps {
@@ -69,7 +77,7 @@ pipeline {
     post {
         always {
             echo 'Sending email with reports...'
-            emailext attachmentsPattern: 'execution-summary/*.html,allure-results/*',
+            emailext attachmentsPattern: 'execution-summary/*.html,allure-report/index.html',
                     body: 'Please find attached the Allure and Execution Summary reports.',
                     mimeType: 'text/html',
                     subject: 'Test Execution Report',
