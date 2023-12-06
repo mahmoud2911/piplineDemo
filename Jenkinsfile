@@ -34,12 +34,14 @@ pipeline {
                 }
             }
         }
+
         stage('Publish Allure to GitHub Pages') {
             steps {
                 echo 'Publishing Allure results to GitHub Pages...'
                 script {
-                    def removeCommand = isUnix() ? 'rm -rf allure-results' : 'rmdir /s /q allure-results'
-                    def moveCommand = isUnix() ? 'mv allure-results/* .' : 'move allure-results\\* .'
+                    def allureResultsDir = 'allure-results'
+                    def removeCommand = isUnix() ? "rm -rf ${allureResultsDir}" : "rmdir /s /q ${allureResultsDir}"
+                    def moveCommand = isUnix() ? "mv ${allureResultsDir}/* ." : "move ${allureResultsDir}\\* ."
                     def gitCmdPrefix = isUnix() ? 'sh' : 'bat'
 
                     // Run remove and move commands
@@ -49,16 +51,12 @@ pipeline {
                         includeProperties: true,
                         jdk: '',
                         results: [
-                            [path: 'allure-results']
+                            [path: allureResultsDir]
                         ]
                     ])
 
                     // Create "docs" directory if it doesn't exist
-                    if (isUnix()) {
-                        sh 'mkdir -p docs'
-                    } else {
-                        bat 'if not exist docs mkdir docs'
-                    }
+                    "${gitCmdPrefix} if [ ! -d docs ]; then mkdir docs; fi"
 
                     // Run move command
                     "${gitCmdPrefix} ${moveCommand}"
@@ -83,18 +81,17 @@ pipeline {
                 }
             }
         }
+    }
 
-      }
-
-      post {
-          always {
-              script {
-                  def allureReportUrl = "https://github.com/mahmoud2911/piplineDemo/"
-                  echo "Sending email with a link to the Allure report: ${allureReportUrl}"
-                  emailext subject: "Test Report for your build",
-                      body: "Find the Allure report here: ${allureReportUrl}",
-                      to: "m666245@gmail.com"
-              }
-          }
-      }
-  }
+    post {
+        always {
+            script {
+                def allureReportUrl = "https://github.com/mahmoud2911/piplineDemo/"
+                echo "Sending email with a link to the Allure report: ${allureReportUrl}"
+                emailext subject: "Test Report for your build",
+                    body: "Find the Allure report here: ${allureReportUrl}",
+                    to: "m666245@gmail.com"
+            }
+        }
+    }
+}
