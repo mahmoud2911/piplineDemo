@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Building and generating reports...'
                 script {
-                    def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    def mavenCommand = isUnix() ? 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression' : 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     if (isUnix()) {
                         sh mavenCommand
                     } else {
@@ -72,6 +72,7 @@ pipeline {
                     def gitCommands = [
                         'git config user.name "mahmoud2911"',
                         'git config user.email "mahmoud.ahmed@foodics.com"',
+                        'git remote rm origin', // Remove existing remote (if any)
                         'git remote add origin https://github.com/mahmoud2911/piplineDemo.git',
                         'git rm -r docs/*',
                         'git commit -m "Remove old Allure reports"',
