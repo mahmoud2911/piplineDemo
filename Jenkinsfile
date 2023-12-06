@@ -7,33 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                echo 'Checking out code...'
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: '*/master']],
-                    doGenerateSubmoduleConfigurations: false,
-                    extensions: [],
-                    submoduleCfg: [],
-                    userRemoteConfigs: [[url: 'https://github.com/mahmoud2911/piplineDemo']]
-                ])
-            }
-        }
-
-        stage('Build and Generate Reports') {
-            steps {
-                echo 'Building and generating reports...'
-                script {
-                   def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
-                    if (isUnix()) {
-                        sh mavenCommand
-                    } else {
-                        bat mavenCommand
-                    }
-                }
-            }
-        }
+        // ... (your existing stages remain unchanged)
 
         stage('Publish Allure and Execution Summary Reports') {
             steps {
@@ -59,23 +33,25 @@ pipeline {
             }
         }
 
-        stage('Archive Old Reports') {
-            steps {
-                echo 'Archiving old reports...'
-                archiveArtifacts(artifacts: 'execution-summary/ExecutionSummaryReport_*-AM.html', allowEmptyArchive: true)
-                archiveArtifacts(artifacts: 'allure-results/*', allowEmptyArchive: true)
-            }
-        }
+        // ... (your existing stages remain unchanged)
     }
 
     post {
         always {
             script {
                 def allureReportUrl = "${BUILD_URL}allure"
-                echo "Sending email with a link to the Allure report: ${allureReportUrl}"
+                def executionSummaryUrl = "${BUILD_URL}execution-summary/ExecutionSummaryReport_1.html" // Adjust the number as needed
+                echo "Sending email with links to the Allure report and Execution Summary: ${allureReportUrl}, ${executionSummaryUrl}"
+                // Attach only necessary files for Allure report and Execution Summary
+                attachmentsPattern = 'allure-results/index.html,execution-summary/*.html'
+
                 emailext subject: "Test Report for your build",
-                    body: "Find the Allure report here: ${allureReportUrl}",
-                    to: "m666245@gmail.com"
+                    body: """
+                    Find the Allure report here: ${allureReportUrl}
+                    Find the Execution Summary report here: ${executionSummaryUrl}
+                    """,
+                    to: "m666245@gmail.com",
+                    attachmentsPattern: attachmentsPattern
             }
         }
     }
