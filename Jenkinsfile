@@ -24,13 +24,13 @@ pipeline {
         stage('Build and Generate Reports') {
             steps {
                 echo 'Building and generating reports...'
-                script {
-                    if (isUnix()) {
-                        sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DexecutionAddress=dockerized -DtargetOperatingSystem=LINUX'
-                    } else {
-                        bat 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
-                    }
-                }
+               script {
+                   if (isUnix()) {
+                       sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                   } else {
+                       bat 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                   }
+               }
             }
         }
 
@@ -54,7 +54,7 @@ pipeline {
 
                     // Configure Git
                     sh 'git init'
-                    sh 'git remote add origin https://github.com/your-username/your-repository.git'
+                    sh 'git remote add origin https://github.com/mahmoud2911/piplineDemo.git'
 
                     // Delete old reports from GitHub Pages
                     sh 'git rm -r docs/*'
