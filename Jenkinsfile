@@ -24,7 +24,14 @@ pipeline {
         stage('Build and Generate Reports') {
             steps {
                 echo 'Building and generating reports...'
-                sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                script {
+                    def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    if (isUnix()) {
+                        sh mavenCommand
+                    } else {
+                        bat mavenCommand
+                    }
+                }
             }
         }
 
@@ -32,13 +39,21 @@ pipeline {
             steps {
                 echo 'Publishing Allure results to GitHub Pages...'
                 script {
-                    def gitInit = !fileExists('.git')
-                    if (gitInit) {
-                        sh 'git init'
-                        sh 'git remote add origin https://github.com/mahmoud2911/piplineDemo.git'
-                    }
+                    def removeCommand = isUnix() ? 'rm -rf allure-report' : 'rmdir /s /q allure-report'
+                    def moveCommand = isUnix() ? 'mv allure-report/* docs/' : 'move allure-report\\* docs\\'
+                    def gitCommands = [
+                        'git init',
+                        'git remote add origin https://github.com/mahmoud2911/piplineDemo.git',
+                        'git rm -r docs/*',
+                        'git commit -m "Remove old Allure reports"',
+                        'git push -u origin master',
+                        'git add docs/*',
+                        'git commit -m "Add latest Allure reports"',
+                        'git push -u origin master'
+                    ]
 
-                    sh 'rm -rf allure-report' // Remove existing allure-report directory
+                    // Run remove and move commands
+                    sh removeCommand
                     allure([
                         includeProperties: true,
                         jdk: '',
@@ -46,21 +61,16 @@ pipeline {
                             [path: 'allure-results']
                         ]
                     ])
-                    sh 'mkdir -p docs' // Create a docs directory to host Allure reports on GitHub Pages
-                    sh 'mv allure-report/* docs/' // Move Allure reports to the docs directory
+                    sh 'mkdir -p docs'
+                    sh moveCommand
 
-                    if (gitInit) {
-                        sh 'git add .'
-                        sh 'git commit -m "Initial commit"'
-                        sh 'git push -u origin master'
-                    } else {
-                        sh 'git rm -r docs/*'
-                        sh 'git commit -m "Remove old Allure reports"'
-                        sh 'git push -u origin master'
-
-                        sh 'git add docs/*'
-                        sh 'git commit -m "Add latest Allure reports"'
-                        sh 'git push -u origin master'
+                    // Run Git commands
+                    gitCommands.each { gitCmd ->
+                        if (isUnix()) {
+                            sh gitCmd
+                        } else {
+                            bat gitCmd
+                        }
                     }
                 }
             }
