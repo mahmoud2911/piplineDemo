@@ -37,17 +37,16 @@ pipeline {
 
         stage('Generate Allure Report') {
             steps {
-                script {
-                    def allureHome = tool name: 'Allure 2.24.1', type: 'io.qameta.allure.jenkins.tools.AllureCommandlineInstallation'
-                    def allureCommand = "${allureHome}/bin/allure"
+           script {
+               def allureHome = tool name: 'Allure 2.24.1', type: 'io.qameta.allure.jenkins.tools.AllureCommandlineInstallation'
+               def allureCommand = "${allureHome}/bin/allure"
+               if (isUnix()) {
+                   sh "${allureCommand} generate allure-results -o allure-report"
+               } else {
+                   bat "${allureCommand} generate allure-results -o allure-report"
+               }
+           }
 
-                    // Run the Allure command to generate the report
-                    if (isUnix()) {
-                        sh "${allureCommand} generate allure-results -o allure-report"
-                    } else {
-                        bat "${allureCommand} generate allure-results -o allure-report"
-                    }
-                }
             }
         }
 
