@@ -1,9 +1,11 @@
 pipeline {
     agent any
+
     tools {
         maven 'Maven 3.9.5'
         allure 'Allure 2.24.1'
     }
+
     stages {
         stage('Checkout') {
             steps {
@@ -18,6 +20,7 @@ pipeline {
                 ])
             }
         }
+
         stage('Build and Generate Reports') {
             steps {
                 echo 'Building and generating reports...'
@@ -30,6 +33,7 @@ pipeline {
                 }
             }
         }
+
         stage('Publish Allure and Execution Summary Reports') {
             steps {
                 echo 'Publishing Allure and execution summary reports...'
@@ -53,6 +57,7 @@ pipeline {
                 }
             }
         }
+
         stage('Archive Old Reports') {
             steps {
                 echo 'Archiving old reports...'
@@ -61,14 +66,16 @@ pipeline {
             }
         }
     }
+
     post {
         always {
-            echo 'Sending email...'
-            emailext subject: "Test Report for your build",
-                body: "Find attached the test report for your build.",
-                attachLog: true,
-                attachmentsPattern: 'allure-results/*,execution-summary/ExecutionSummaryReport_*-AM.html',
-                to: "m666245@gmail.com"
+            script {
+                def allureReportUrl = "${BUILD_URL}allure"
+                echo "Sending email with a link to the Allure report: ${allureReportUrl}"
+                emailext subject: "Test Report for your build",
+                    body: "Find the Allure report here: ${allureReportUrl}",
+                    to: "m666245@gmail.com"
+            }
         }
     }
 }
