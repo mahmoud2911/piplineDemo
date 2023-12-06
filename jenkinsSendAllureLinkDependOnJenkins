@@ -34,14 +34,10 @@ pipeline {
             }
         }
 
-        stage('Publish Allure to GitHub Pages') {
+        stage('Publish Allure and Execution Summary Reports') {
             steps {
-                echo 'Publishing Allure results to GitHub Pages...'
+                echo 'Publishing Allure and execution summary reports...'
                 script {
-                    def removeCommand = isUnix() ? 'rm -rf allure-report' : 'rmdir /s /q allure-report'
-                    def moveCommand = isUnix() ? 'mv allure-report/* docs/' : 'move allure-report\\* docs\\'
-
-                    sh removeCommand  // Remove existing allure-report directory
                     allure([
                         includeProperties: true,
                         jdk: '',
@@ -49,23 +45,24 @@ pipeline {
                             [path: 'allure-results']
                         ]
                     ])
-                    sh 'mkdir -p docs'  // Create a docs directory to host Allure reports on GitHub Pages
-                    sh moveCommand  // Move Allure reports to the docs directory
-
-                    // Configure Git
-                    sh 'git init'
-                    sh 'git remote add origin https://github.com/your-username/your-repository.git'
-
-                    // Delete old reports from GitHub Pages
-                    sh 'git rm -r docs/*'
-                    sh 'git commit -m "Remove old Allure reports"'
-                    sh 'git push -u origin master'
-
-                    // Add and commit the latest reports
-                    sh 'git add docs/*'
-                    sh 'git commit -m "Add latest Allure reports"'
-                    sh 'git push -u origin master'
+                    publishHTML(target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll: true,
+                        reportDir: 'execution-summary',
+                        reportFiles: 'ExecutionSummaryReport_*.html',
+                        reportName: 'Execution Summary Report',
+                        reportTitles: ''
+                    ])
                 }
+            }
+        }
+
+        stage('Archive Old Reports') {
+            steps {
+                echo 'Archiving old reports...'
+                archiveArtifacts(artifacts: 'execution-summary/ExecutionSummaryReport_*-AM.html', allowEmptyArchive: true)
+                archiveArtifacts(artifacts: 'allure-results/*', allowEmptyArchive: true)
             }
         }
     }
@@ -73,7 +70,7 @@ pipeline {
     post {
         always {
             script {
-                def allureReportUrl = "https://github.com/mahmoud2911/piplineDemo/docs"
+                def allureReportUrl = "${BUILD_URL}allure"
                 echo "Sending email with a link to the Allure report: ${allureReportUrl}"
                 emailext subject: "Test Report for your build",
                     body: "Find the Allure report here: ${allureReportUrl}",
