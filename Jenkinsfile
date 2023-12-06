@@ -69,19 +69,23 @@ pipeline {
     post {
         always {
             script {
-                def allureReportUrl = "${BUILD_URL}allure"
-                def executionSummaryUrl = "${BUILD_URL}Execution_20Summary_20Report/" // Adjust the number as needed
+                def gitRepoUrl = 'https://github.com/mahmoud2911/piplineDemo' // Replace with your actual repository URL
+                def allureReportRelativePath = 'allure-report/index.html'
+                def executionSummaryRelativePath = 'execution-summary/ExecutionSummaryReport_*.html'
+
+                def allureReportUrl = "${gitRepoUrl}/blob/master/${allureReportRelativePath}"
+                def executionSummaryUrl = "${gitRepoUrl}/blob/master/${executionSummaryRelativePath}"
+
                 echo "Sending email with links to the Allure report and Execution Summary: ${allureReportUrl}, ${executionSummaryUrl}"
-                // Attach only necessary files for Allure report and Execution Summary
-                 attachmentsPattern = 'allure-results/index.html,execution-summary/*.html'
 
                 emailext subject: "Test Report for your build",
-                body: """
-                Find the Allure report here: ${allureReportUrl}
-                Find the Execution Summary report here: ${executionSummaryUrl}
-                """,
-                to: "mahmoud.ahmed@foodics.com",
-                attachmentsPattern: attachmentsPattern
+                        body: """
+                        Find the Allure report here: ${allureReportUrl}
+                        Find the Execution Summary report here: ${executionSummaryUrl}
+                        """,
+                        to: "mahmoud.ahmed@foodics.com",
+                        mimeType: 'text/html',
+                        attachmentsPattern: 'allure-results/**/*,execution-summary/*.html'
             }
         }
     }
