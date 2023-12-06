@@ -25,7 +25,9 @@ pipeline {
             steps {
                 echo 'Building and generating reports...'
                 script {
-                    def mavenCommand = isUnix() ? 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression' : 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    def mavenCommand = isUnix() ?
+                        'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression' :
+                        'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     sh mavenCommand
                 }
             }
@@ -37,18 +39,6 @@ pipeline {
                 script {
                     def removeCommand = isUnix() ? 'rm -rf allure-report' : 'rmdir /s /q allure-report'
                     def moveCommand = isUnix() ? 'mv allure-report/* docs/' : 'move allure-report\\* docs\\'
-                    def gitCommands = [
-                        'git config user.name "Your Name"',
-                        'git config user.email "your.email@example.com"',
-                        'git init',
-                        'git remote add origin https://github.com/mahmoud2911/piplineDemo.git',
-                        'git rm -r docs/*',
-                        'git commit -m "Remove old Allure reports"',
-                        'git push -u origin master',
-                        'git add docs/*',
-                        'git commit -m "Add latest Allure reports"',
-                        'git push -u origin master'
-                    ]
 
                     // Run remove and move commands
                     if (isUnix()) {
@@ -76,6 +66,18 @@ pipeline {
                     }
 
                     // Run Git commands
+                    def gitCommands = [
+                        'git config user.name "mahmoud2911"',
+                        'git config user.email "mahmoud.ahmed@foodics.com"',
+                        'git remote add origin https://github.com/mahmoud2911/piplineDemo.git',
+                        'git rm -r docs/*',
+                        'git commit -m "Remove old Allure reports"',
+                        'git push -u origin master',
+                        'git add docs/*',
+                        'git commit -m "Add latest Allure reports"',
+                        'git push -u origin master'
+                    ]
+
                     gitCommands.each { gitCmd ->
                         if (isUnix()) {
                             sh gitCmd
