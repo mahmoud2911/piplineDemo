@@ -24,8 +24,11 @@ pipeline {
         stage('Build branch') {
             steps {
                 echo 'Building and generating reports...'
-                def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                 script {
+                    // Use double-quotes for string interpolation
+                    def mavenCommand = "mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression"
+
+                    // Use sh for Unix and bat for Windows
                     if (isUnix()) {
                         sh mavenCommand
                     } else {
