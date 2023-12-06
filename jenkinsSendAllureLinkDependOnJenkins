@@ -25,10 +25,11 @@ pipeline {
             steps {
                 echo 'Building and generating reports...'
                 script {
+                   def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     if (isUnix()) {
-                        sh 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DexecutionAddress=dockerized -DtargetOperatingSystem=LINUX'
+                        sh mavenCommand
                     } else {
-                        bat 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                        bat mavenCommand
                     }
                 }
             }

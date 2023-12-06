@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Building and generating reports...'
                 script {
-                    def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                   def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     if (isUnix()) {
                         sh mavenCommand
                     } else {
@@ -35,50 +35,35 @@ pipeline {
             }
         }
 
-        stage('Publish Allure to GitHub Pages') {
+        stage('Publish Allure and Execution Summary Reports') {
             steps {
-                echo 'Publishing Allure results to GitHub Pages...'
+                echo 'Publishing Allure and execution summary reports...'
                 script {
-                    def allureResultsDir = 'allure-results'
-                    def removeCommand = isUnix() ? "rm -rf ${allureResultsDir}" : "rmdir /s /q ${allureResultsDir}"
-                    def moveCommand = isUnix() ? "mv ${allureResultsDir}/* ." : "move ${allureResultsDir}\\* ."
-                    def gitCmdPrefix = isUnix() ? 'sh' : 'bat'
-
-                    // Run remove and move commands
-                    "${gitCmdPrefix} ${removeCommand}"
-
                     allure([
                         includeProperties: true,
                         jdk: '',
                         results: [
-                            [path: allureResultsDir]
+                            [path: 'allure-results']
                         ]
                     ])
-
-                    // Create "docs" directory if it doesn't exist
-                    "${gitCmdPrefix} if [ ! -d docs ]; then mkdir docs; fi"
-
-                    // Run move command
-                    "${gitCmdPrefix} ${moveCommand}"
-
-                    // Run Git commands
-                    def gitCommands = [
-                        'git config user.name "mahmoud2911"',
-                        'git config user.email "mahmoud.ahmed@foodics.com"',
-                        'git remote rm origin', // Remove existing remote (if any)
-                        'git remote add origin https://github.com/mahmoud2911/piplineDemo.git',
-                        'git rm -r docs/*',
-                        'git commit -m "Remove old Allure reports"',
-                        'git push -u origin master',
-                        'git add *',
-                        'git commit -m "Add latest Allure reports"',
-                        'git push -u origin master'
-                    ]
-
-                    gitCommands.each { gitCmd ->
-                        "${gitCmdPrefix} ${gitCmd}"
-                    }
+                    publishHTML(target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll: true,
+                        reportDir: 'execution-summary',
+                        reportFiles: 'ExecutionSummaryReport_*.html',
+                        reportName: 'Execution Summary Report',
+                        reportTitles: ''
+                    ])
                 }
+            }
+        }
+
+        stage('Archive Old Reports') {
+            steps {
+                echo 'Archiving old reports...'
+                archiveArtifacts(artifacts: 'execution-summary/ExecutionSummaryReport_*-AM.html', allowEmptyArchive: true)
+                archiveArtifacts(artifacts: 'allure-results/*', allowEmptyArchive: true)
             }
         }
     }
@@ -86,7 +71,7 @@ pipeline {
     post {
         always {
             script {
-                def allureReportUrl = "https://github.com/mahmoud2911/piplineDemo/"
+                def allureReportUrl = "${BUILD_URL}allure"
                 echo "Sending email with a link to the Allure report: ${allureReportUrl}"
                 emailext subject: "Test Report for your build",
                     body: "Find the Allure report here: ${allureReportUrl}",
