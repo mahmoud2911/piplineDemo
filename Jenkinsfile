@@ -38,21 +38,21 @@ pipeline {
             }
         }
 
-        stage('Generate Allure Report') {
-            steps {
-                script {
-                    // Use the configured Allure installation
-                    def allureExecutable = tool 'Allure 2.24.1'
+   stage('Generate Allure Report') {
+       steps {
+           script {
+               // Use the configured Allure installation
+               def allureExecutable = tool 'Allure 2.24.1'
 
-                    // Run the Allure command to generate the report
-                    if (isUnix()) {
-                        sh "${allureExecutable}/bin/allure generate allure-results -o allure-report"
-                    } else {
-                        bat "${allureExecutable}\\bin\\allure generate allure-results -o allure-report"
-                    }
-                }
-            }
-        }
+               // Run the Allure command to generate the report
+               if (isUnix()) {
+                   sh "${allureExecutable}/bin/allure generate allure-results -o allure-report --clean"
+               } else {
+                   bat "${allureExecutable}\\bin\\allure generate allure-results -o allure-report --clean"
+               }
+           }
+       }
+   }
 
         stage('Publish Allure and Execution Summary Reports') {
             steps {
