@@ -52,6 +52,29 @@ pipeline {
            }
        }
        }
+        stage('Publish Allure and Execution Summary Reports in jenkins') {
+                   steps {
+                       echo 'Publishing Allure and execution summary reports...'
+                       script {
+                           allure([
+                               includeProperties: true,
+                               jdk: '',
+                               results: [
+                                   [path: 'allure-results']
+                               ]
+                           ])
+                           publishHTML(target: [
+                               allowMissing: false,
+                               alwaysLinkToLastBuild: false,
+                               keepAll: true,
+                               reportDir: 'execution-summary',
+                               reportFiles: 'ExecutionSummaryReport_*.html',
+                               reportName: 'Execution Summary Report',
+                               reportTitles: ''
+                           ])
+                       }
+                   }
+               }
         stage('Publish to GitHub Pages') {
             steps {
                 script {
@@ -75,18 +98,19 @@ pipeline {
                                   '''
                               }
 
-                    // Publish to master branch
-                    if (isUnix()) {
-                        sh 'git checkout -b master'
-                        sh 'git add allure-results'
-                        sh 'git commit -m "Add Allure report"'
-                        sh 'git push origin master'
-                    } else {
-                        bat 'git checkout -b master'
-                        bat 'git add allure-results'
-                        bat 'git commit -m "Add Allure report"'
-                        bat 'git push origin master'
-                    }
+                // Publish to master branch
+                if (isUnix()) {
+                    sh 'git branch --show-current | grep -q "master" || git checkout master'
+                    sh 'git add allure-results'
+                    sh 'git commit -m "Add Allure report"'
+                    sh 'git push origin master'
+                } else {
+                    bat 'git branch | findstr /C:"* master" || git checkout master'
+                    bat 'git add allure-results'
+                    bat 'git commit -m "Add Allure report"'
+                    bat 'git push origin master'
+                }
+
 
                     // Switch to gh-pages branch and publish Allure report
                     if (isUnix()) {
@@ -104,30 +128,6 @@ pipeline {
                         bat 'git commit -m "Publish Allure report to GitHub Pages"'
                         bat 'git push origin gh-pages'
                     }
-                }
-            }
-        }
-
-        stage('Publish Allure and Execution Summary Reports in jenkins') {
-            steps {
-                echo 'Publishing Allure and execution summary reports...'
-                script {
-                    allure([
-                        includeProperties: true,
-                        jdk: '',
-                        results: [
-                            [path: 'allure-results']
-                        ]
-                    ])
-                    publishHTML(target: [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll: true,
-                        reportDir: 'execution-summary',
-                        reportFiles: 'ExecutionSummaryReport_*.html',
-                        reportName: 'Execution Summary Report',
-                        reportTitles: ''
-                    ])
                 }
             }
         }
