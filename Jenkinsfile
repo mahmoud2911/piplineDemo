@@ -82,7 +82,7 @@ pipeline {
                 }
             }
         }
-
+}
         post {
             always {
                 echo 'Sending email with reports...'
@@ -111,5 +111,4 @@ pipeline {
                 }
             }
         }
-    }
 }
