@@ -77,12 +77,12 @@ pipeline {
 
                     // Publish to master branch
                     if (isUnix()) {
-                        sh 'git branch -m master'
+                        sh 'git checkout -b master'
                         sh 'git add allure-results'
                         sh 'git commit -m "Add Allure report"'
                         sh 'git push origin master'
                     } else {
-                        bat 'git branch -m master'
+                        bat 'git checkout -b master'
                         bat 'git add allure-results'
                         bat 'git commit -m "Add Allure report"'
                         bat 'git push origin master'
