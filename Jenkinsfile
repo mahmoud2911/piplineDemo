@@ -38,26 +38,52 @@ pipeline {
             }
         }
 
-        stage('Serve Allure Report') {
-            steps {
-                script {
-                    // Use the configured Allure installation
-                    def allureExecutable = tool 'Allure 2.24.1'
-
-                    // Run the Allure serve command in the background
-                    if (isUnix()) {
-                        sh "${allureExecutable}/bin/allure serve allure-results --port 61058 &"
-                    } else {
-                        bat "start /B ${allureExecutable}\\bin\\allure serve allure-results --port 61058"
-                    }
-
-                    // Wait for the Allure server to start (adjust the sleep duration as needed)
-                    sleep time: 30, unit: 'SECONDS'
-                }
+ stage('Commit to GitHub') {
+     steps {
+         script {
+            if (isUnix()) {
+                sh 'git config --global user.email "mahmoud.ahmed@foodics.com"'
+                sh 'git config --global user.name "mahmoud2911"'
+            } else {
+                // For Windows
+                bat 'git config --global user.email "mahmoud.ahmed@foodics.com"'
+                bat 'git config --global user.name "mahmoud2911"'
             }
-        }
 
-        stage('Publish Allure and Execution Summary Reports') {
+            // Commit and push to master branch
+            if (isUnix()) {
+                sh 'git add allure-results'
+                sh 'git commit -m "Add Allure report"'
+                sh 'git push origin master'
+            } else {
+                // For Windows
+                bat 'git add allure-results'
+                bat 'git commit -m "Add Allure report"'
+                bat 'git push origin master'
+            }
+             // Switch to gh-pages branch and publish Allure report
+             if (isUnix()) {
+                 sh 'git checkout -b gh-pages'
+                 sh 'git rm -rf .'
+                 sh 'cp -r allure-report/* .'
+                 sh 'git add .'
+                 sh 'git commit -m "Publish Allure report to GitHub Pages"'
+                 sh 'git push origin gh-pages'
+             } else {
+                 // For Windows
+                 bat 'git checkout -b gh-pages'
+                 bat 'git rm -rf .'
+                 bat 'xcopy /s allure-report .'
+                 bat 'git add .'
+                 bat 'git commit -m "Publish Allure report to GitHub Pages"'
+                 bat 'git push origin gh-pages'
+             }
+         }
+     }
+ }
+
+
+      stage('Publish Allure and Execution Summary Reports in jenkins') {
             steps {
                 echo 'Publishing Allure and execution summary reports...'
                 script {
@@ -81,14 +107,6 @@ pipeline {
             }
         }
 
-        stage('Archive Reports') {
-            steps {
-                echo 'Archiving reports...'
-                archiveArtifacts(artifacts: 'execution-summary/*.html,allure-results/*', allowEmptyArchive: true)
-            }
-        }
-    }
-
     post {
         always {
             echo 'Sending email with reports...'
@@ -101,13 +119,13 @@ pipeline {
 
                 // Build the custom subject with an identifier for test results
                 def customSubject = "${projectName} - Build #${buildNumber} - ${buildStatus} - Test Results"
-                //allure report url
-                def allureReportUrl = "http://localhost:61058/index.html"
+                // GitHub Pages URL for Allure report
+                def allureReportUrl = "https://mahmoud2911.github.io/pipelineDemo/"
                 emailext attachmentsPattern: 'execution-summary/*.html',
-                body: "Find attached Execution summary report and Allure report here: ${allureReportUrl} ",
-                mimeType: 'text/html',
-                subject: customSubject,
-                to: 'mahmoud.ahmed@foodics.com,m.azab@foodics.com'
+                        body: "Find the Allure report here: ${allureReportUrl}",
+                        mimeType: 'text/html',
+                        subject: customSubject,
+                        to: 'mahmoud.ahmed@foodics.com'
             }
         }
     }
