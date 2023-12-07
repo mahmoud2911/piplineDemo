@@ -1,0 +1,9 @@
+Program 'ExecutionSummaryReport_07-12-2023_15-27-23-0873-PM.html' failed to run: The operation attempted is not 
+supportedAt line:1 char:1
++ .\execution-summary/ExecutionSummaryReport_*.html
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.
+At line:1 char:1
++ .\execution-summary/ExecutionSummaryReport_*.html
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (:) [], ApplicationFailedException
+    + FullyQualifiedErrorId : NativeCommandFailed
