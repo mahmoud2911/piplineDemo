@@ -146,7 +146,7 @@ pipeline {
                 // Build the custom subject with an identifier for test results
                 def customSubject = "${projectName} - Build #${buildNumber} - ${buildStatus} - Test Results"
                 // GitHub Pages URL for Allure report
-                def allureReportUrl = "https://mahmoud2911.github.io/pipelineDemo/"
+                def allureReportUrl = "https://mahmoud2911.github.io/pipelineDemo/allure-report"
                 emailext attachmentsPattern: 'execution-summary/*.html',
                         body: "Find the Allure report here: ${allureReportUrl}",
                         mimeType: 'text/html',
