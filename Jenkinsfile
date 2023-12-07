@@ -98,18 +98,21 @@ pipeline {
                                   '''
                               }
 
-                // Publish to master branch
-                if (isUnix()) {
-                    sh 'git branch --show-current | grep -q "master" || git checkout master'
-                    sh 'git add allure-results'
-                    sh 'git commit -m "Add Allure report"'
-                    sh 'git push origin master'
-                } else {
-                    bat 'git branch | findstr /C:"* master" || git checkout master'
-                    bat 'git add allure-results'
-                    bat 'git commit -m "Add Allure report"'
-                    bat 'git push origin master'
-                }
+        // Publish to master branch
+        if (isUnix()) {
+            sh 'git branch --show-current | grep -q "master" || git checkout master'
+            sh 'git pull origin master'  // Pull changes from remote master
+            sh 'git add allure-results'
+            sh 'git commit -m "Add Allure report"'
+            sh 'git push origin master'
+        } else {
+            bat 'git branch | findstr /C:"* master" || git checkout master'
+            bat 'git pull origin master'  // Pull changes from remote master
+            bat 'git add allure-results'
+            bat 'git commit -m "Add Allure report"'
+            bat 'git push origin master'
+        }
+
 
 
                     // Switch to gh-pages branch and publish Allure report
