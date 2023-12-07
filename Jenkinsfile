@@ -59,16 +59,21 @@ pipeline {
                    // def gitConfigCmd = isUnix() ? 'git config' : 'git config.exe'
                    // sh "$gitConfigCmd --global user.email 'mahmoud.ahmed@foodics.com'"
                     //sh "$gitConfigCmd --global user.name 'mahmoud2911'"
-                      // Define the Git executable based on the operating system
-                                def gitExecutable = isUnix() ? 'sh' : 'bat'
+                  // Define the Git executable based on the operating system
+                              def gitExecutable = isUnix() ? 'sh' : 'bat'
 
-                                // Set Git user configuration
-                                script {
-                                    "${gitExecutable}" script: '''
-                                        git config --global user.email 'mahmoud.ahmed@foodics.com'
-                                        git config --global user.name 'mahmoud2911'
-                                    ''', label: 'Setting Git Config'
-                                }
+                              // Set Git user configuration
+                              if (isUnix()) {
+                                  sh '''
+                                      git config --global user.email 'mahmoud.ahmed@foodics.com'
+                                      git config --global user.name 'mahmoud2911'
+                                  '''
+                              } else {
+                                  bat '''
+                                      git config --global user.email 'mahmoud.ahmed@foodics.com'
+                                      git config --global user.name 'mahmoud2911'
+                                  '''
+                              }
 
                     // Publish to master branch
                     if (isUnix()) {
