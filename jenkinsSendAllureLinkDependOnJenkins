@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo 'Building and generating reports...'
                 script {
-                   def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
+                    def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     if (isUnix()) {
                         sh mavenCommand
                     } else {
@@ -42,6 +42,8 @@ pipeline {
                     allure([
                         includeProperties: true,
                         jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
                         results: [
                             [path: 'allure-results']
                         ]
@@ -71,11 +73,21 @@ pipeline {
     post {
         always {
             script {
+                def projectName = env.JOB_NAME
+                def buildNumber = env.BUILD_NUMBER
+                def buildStatus = currentBuild.currentResult
+                def customSubject = "${projectName} - Build #${buildNumber} - ${buildStatus} - Test Results"
+                def executionSummaryUrl = "${BUILD_URL}Execution_20Summary_20Report/"
                 def allureReportUrl = "${BUILD_URL}allure"
                 echo "Sending email with a link to the Allure report: ${allureReportUrl}"
-                emailext subject: "Test Report for your build",
-                    body: "Find the Allure report here: ${allureReportUrl}",
-                    to: "m666245@gmail.com"
+                emailext attachmentsPattern: 'execution-summary/*.html',
+                body: """
+                Find the Allure report here: ${allureReportUrl}<br>
+                Find the Execution Summary report here: ${executionSummaryUrl}
+                """,
+                mimeType: 'text/html',
+                subject: customSubject,
+                to: 'mahmoud.ahmed@foodics.com'
             }
         }
     }
