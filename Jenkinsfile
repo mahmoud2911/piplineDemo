@@ -38,24 +38,24 @@ pipeline {
             }
         }
 
-   stage('Serve Allure Report') {
-       steps {
-            script {
-                            // Use the configured Allure installation
-                            def allureExecutable = tool 'Allure 2.24.1'
+        stage('Serve Allure Report') {
+            steps {
+                script {
+                    // Use the configured Allure installation
+                    def allureExecutable = tool 'Allure 2.24.1'
 
-                            // Run the Allure serve command in the background
-                            if (isUnix()) {
-                                sh "${allureExecutable}/bin/allure serve allure-results --port 61058 &"
-                            } else {
-                                bat "start /B ${allureExecutable}\\bin\\allure serve allure-results --port 61058"
-                            }
+                    // Run the Allure serve command in the background
+                    if (isUnix()) {
+                        sh "${allureExecutable}/bin/allure serve allure-results --port 61058 &"
+                    } else {
+                        bat "start /B ${allureExecutable}\\bin\\allure serve allure-results --port 61058"
+                    }
 
-                            // Wait for the Allure server to start (adjust the sleep duration as needed)
-                            sleep time: 30, unit: 'SECONDS'
-                        }
-       }
-   }
+                    // Wait for the Allure server to start (adjust the sleep duration as needed)
+                    sleep time: 30, unit: 'SECONDS'
+                }
+            }
+        }
 
         stage('Publish Allure and Execution Summary Reports') {
             steps {
@@ -89,29 +89,26 @@ pipeline {
         }
     }
 
-  post {
-      always {
-          echo 'Sending email with reports...'
+    post {
+        always {
+            echo 'Sending email with reports...'
 
-          script {
-              // Get the project name, build number, and build status
-              def projectName = env.JOB_NAME
-              def buildNumber = env.BUILD_NUMBER
-              def buildStatus = currentBuild.currentResult
+            script {
+                // Get the project name, build number, and build status
+                def projectName = env.JOB_NAME
+                def buildNumber = env.BUILD_NUMBER
+                def buildStatus = currentBuild.currentResult
 
-              // Build the custom subject with an identifier for test results
-              def customSubject = "${projectName} - Build #${buildNumber} - ${buildStatus} - Test Results"
-              //allure and execution summary urls
-                // def allureReportUrl = "${BUILD_URL}allure"
-                 def allureReportUrl = "http://localhost:61058/index.html"
-                 def executionSummaryUrl = "${BUILD_URL}Execution_20Summary_20Report/"
-              emailext attachmentsPattern: 'execution-summary/*.html',
-                body: "Find the Allure report here: ${allureReportUrl}",
-                  mimeType: 'text/html',
-                      subject: customSubject,
-                      to: 'mahmoud.ahmed@foodics.com'
-          }
-      }
-  }
-
+                // Build the custom subject with an identifier for test results
+                def customSubject = "${projectName} - Build #${buildNumber} - ${buildStatus} - Test Results"
+                //allure report url
+                def allureReportUrl = "http://localhost:61058/index.html"
+                emailext attachmentsPattern: 'execution-summary/*.html',
+                body: "Find attached Execution summary report and Allure report here: ${allureReportUrl} ",
+                mimeType: 'text/html',
+                subject: customSubject,
+                to: 'mahmoud.ahmed@foodics.com,m.azab@foodics.com'
+            }
+        }
+    }
 }
