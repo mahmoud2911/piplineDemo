@@ -60,28 +60,23 @@ pipeline {
                 }
             }
         }
-        stage('Serve Allure Report to GitHub Pages') {
-            steps {
-                echo 'Serving Allure Report to GitHub Pages...'
-                script {
-                    // Install GitHub Pages if not already installed
-                    if (isUnix()) {
-                        sh 'npm install -g gh-pages'
-                    } else {
-                        bat 'npm install -g gh-pages'
-                    }
+      stage('Serve Allure Report to GitHub Pages') {
+          steps {
+              script {
+                  def ghPagesCommand = isUnix() ? '/usr/local/lib/node_modules/gh-pages' : 'C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\npm\\node_modules\\gh-pages'
 
-                    // Deploy Allure report to GitHub Pages
-                    if (isUnix()) {
-                        sh 'gh-pages -d allure-report'
-                    } else {
-                        bat 'gh-pages -d allure-report'
-                    }
-                     // Clean up temporary files
-                      deleteDir()
-                }
-            }
-        }
+                  // Run the gh-pages command in a platform-agnostic way
+                  if (isUnix()) {
+                      sh "${ghPagesCommand} -d allure-report"
+                  } else {
+                      bat "\"${ghPagesCommand}\" -d allure-report"
+                  }
+
+                  // Clean up temporary files
+                  deleteDir()
+              }
+          }
+      }
         stage('Archive Old Reports') {
             steps {
                 echo 'Archiving old reports...'
