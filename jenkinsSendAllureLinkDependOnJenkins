@@ -1,11 +1,9 @@
 pipeline {
     agent any
-
     tools {
         maven 'Maven 3.9.5'
         allure 'Allure 2.24.1'
     }
-
     stages {
         stage('Checkout') {
             steps {
@@ -20,10 +18,9 @@ pipeline {
                 ])
             }
         }
-
-        stage('Build and Generate Reports') {
+        stage('Build Test Scripts') {
             steps {
-                echo 'Building and generating reports...'
+                echo 'Building Test Scripts...'
                 script {
                     def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     if (isUnix()) {
@@ -34,7 +31,6 @@ pipeline {
                 }
             }
         }
-
         stage('Publish Allure and Execution Summary Reports') {
             steps {
                 echo 'Publishing Allure and execution summary reports...'
@@ -60,7 +56,6 @@ pipeline {
                 }
             }
         }
-
         stage('Archive Old Reports') {
             steps {
                 echo 'Archiving old reports...'
@@ -69,7 +64,6 @@ pipeline {
             }
         }
     }
-
     post {
         always {
             script {

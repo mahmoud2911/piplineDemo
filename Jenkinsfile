@@ -60,7 +60,28 @@ pipeline {
                 }
             }
         }
+        stage('Serve Allure Report to GitHub Pages') {
+            steps {
+                echo 'Serving Allure Report to GitHub Pages...'
+                script {
+                    // Install GitHub Pages if not already installed
+                    if (isUnix()) {
+                        sh 'npm install -g gh-pages'
+                    } else {
+                        bat 'npm install -g gh-pages'
+                    }
 
+                    // Deploy Allure report to GitHub Pages
+                    if (isUnix()) {
+                        sh 'gh-pages -d allure-report'
+                    } else {
+                        bat 'gh-pages -d allure-report'
+                    }
+                     // Clean up temporary files
+                      deleteDir()
+                }
+            }
+        }
         stage('Archive Old Reports') {
             steps {
                 echo 'Archiving old reports...'
@@ -79,10 +100,12 @@ pipeline {
                 def customSubject = "${projectName} - Build #${buildNumber} - ${buildStatus} - Test Results"
                 def executionSummaryUrl = "${BUILD_URL}Execution_20Summary_20Report/"
                 def allureReportUrl = "${BUILD_URL}allure"
+                def githubAllureReportUrl = "https://mahmoud2911.github.io/piplineDemo/allure-report/index.html"
                 echo "Sending email with a link to the Allure report: ${allureReportUrl}"
                 emailext attachmentsPattern: 'execution-summary/*.html',
                 body: """
                 Find the Allure report here: ${allureReportUrl}<br>
+                Find the Allure report link in github here: ${githubAllureReportUrl}<br>
                 Find the Execution Summary report here: ${executionSummaryUrl}
                 """,
                 mimeType: 'text/html',
