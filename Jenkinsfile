@@ -38,19 +38,22 @@ pipeline {
             }
         }
 
-   stage('Generate Allure Report') {
+   stage('Serve Allure Report') {
        steps {
-           script {
-               // Use the configured Allure installation
-               def allureExecutable = tool 'Allure 2.24.1'
+            script {
+                            // Use the configured Allure installation
+                            def allureExecutable = tool 'Allure 2.24.1'
 
-               // Run the Allure command to generate the report
-               if (isUnix()) {
-                   sh "${allureExecutable}/bin/allure generate allure-results -o allure-report --clean"
-               } else {
-                   bat "${allureExecutable}\\bin\\allure generate allure-results -o allure-report --clean"
-               }
-           }
+                            // Run the Allure serve command in the background
+                            if (isUnix()) {
+                                sh "${allureExecutable}/bin/allure serve allure-results --port 61058 &"
+                            } else {
+                                bat "start /B ${allureExecutable}\\bin\\allure serve allure-results --port 61058"
+                            }
+
+                            // Wait for the Allure server to start (adjust the sleep duration as needed)
+                            sleep time: 30, unit: 'SECONDS'
+                        }
        }
    }
 
@@ -98,10 +101,13 @@ pipeline {
 
               // Build the custom subject with an identifier for test results
               def customSubject = "${projectName} - Build #${buildNumber} - ${buildStatus} - Test Results"
-
-              emailext attachmentsPattern: 'execution-summary/*.html,allure-report/index.html',
-                      body: 'Please find attached the Allure and Execution Summary reports.',
-                      mimeType: 'text/html',
+              //allure and execution summary urls
+                // def allureReportUrl = "${BUILD_URL}allure"
+                 def allureReportUrl = "http://localhost:61058/index.html"
+                 def executionSummaryUrl = "${BUILD_URL}Execution_20Summary_20Report/"
+              emailext attachmentsPattern: 'execution-summary/*.html',
+                body: "Find the Allure report here: ${allureReportUrl}",
+                  mimeType: 'text/html',
                       subject: customSubject,
                       to: 'mahmoud.ahmed@foodics.com'
           }
