@@ -1,0 +1,850 @@
+[INFO ] 2023-12-07 15:25:53.536 [main] ReportManager - 
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                                    Powered by [1mSHAFT v.7.4.20231015[22m                                                    
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
+[INFO ] 2023-12-07 15:25:55.556 [main] ReportManager - Loaded OpenCV "opencv_java470".
+[INFO ] 2023-12-07 15:25:55.558 [main] ReportManager - Initializing Allure Reporting Environment...
+[INFO ] 2023-12-07 15:25:56.160 [main] ReportManager - Initializing Summary Reporting Environment...
+[INFO ] 2023-12-07 15:25:56.222 [main] ReportManager - TestNG run detected...
+[INFO ] 2023-12-07 15:25:57.074 [main] ReportManager - 
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                             Starting execution of suite setup configuration method                                             
+                                          'com.shaft.listeners.internal.ConfigurationHelper.suiteSetup'                                          
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
+[INFO ] 2023-12-07 15:25:57.523 [main] ReportManager - Initializing Important Links...
+[INFO ] 2023-12-07 15:25:57.550 [main] ReportManager - Initializing Properties...
+[INFO ] 2023-12-07 15:26:01.027 [TestNG-test=cucumber test runner-1] ReportManager - File Action "DoesFileExist" successfully performed. With the following test data "File Path: "/C:/ProgramData/Jenkins/.jenkins/workspace/pipline_job/src/test/resources/features/TC65_DashboardDateComparison.feature"".
+[INFO ] 2023-12-07 15:26:01.029 [TestNG-test=cucumber test runner-1] ReportManager - File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "/C:/ProgramData/Jenkins/.jenkins/workspace/pipline_job/src/test/resources/features/TC65_DashboardDateComparison.feature"".
+[INFO ] 2023-12-07 15:26:01.039 [TestNG-test=cucumber test runner-1] ReportManager - File Action "ReadFile" successfully performed. With the following test data "File Path: "C:\ProgramData\Jenkins\.jenkins\workspace\pipline_job\src\test\resources\features\TC65_DashboardDateComparison.feature"".
+[INFO ] 2023-12-07 15:26:01.778 [TestNG-test=cucumber test runner-1] ReportManager - @regression
+[INFO ] 2023-12-07 15:26:01.778 [TestNG-test=cucumber test runner-1] ReportManager - Scenario Outline: Verify that compare toggle can be switched on successfully in all views and all charts are fully loaded [90m# src/test/resources/features/TC65_DashboardDateComparison.feature:15[0m
+[INFO ] 2023-12-07 15:26:01.786 [TestNG-test=cucumber test runner-1] ReportManager - File Action "DoesFileExist" successfully performed. With the following test data "File Path: "/C:/ProgramData/Jenkins/.jenkins/workspace/pipline_job/src/test/resources/features/TC65_DashboardDateComparison.feature"".
+[INFO ] 2023-12-07 15:26:01.786 [TestNG-test=cucumber test runner-1] ReportManager - File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "/C:/ProgramData/Jenkins/.jenkins/workspace/pipline_job/src/test/resources/features/TC65_DashboardDateComparison.feature"".
+[INFO ] 2023-12-07 15:26:01.786 [TestNG-test=cucumber test runner-1] ReportManager - File Action "ReadFile" successfully performed. With the following test data "File Path: "C:\ProgramData\Jenkins\.jenkins\workspace\pipline_job\src\test\resources\features\TC65_DashboardDateComparison.feature"".
+[ERROR] 2023-12-07 15:26:01.795 [TestNG-test=cucumber test runner-1] AllureLifecycle - Could not update test case: no test case running
+[ERROR] 2023-12-07 15:26:01.795 [TestNG-test=cucumber test runner-1] AllureLifecycle - Could not update test case: no test case running
+[ERROR] 2023-12-07 15:26:01.795 [TestNG-test=cucumber test runner-1] AllureLifecycle - Could not update test case: no test case running
+[INFO ] 2023-12-07 15:26:01.818 [TestNG-test=cucumber test runner-1] ReportManager - 
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                   Starting Execution: "1 out of 1" scenarios in the "Date Comparison" feature                                   
+        Scenario Outline Name: "Verify that compare toggle can be switched on successfully in all views and all charts are fully loaded"        
+                                                             Scenario Outline Steps:                                                             
+                                Given User is logged in with "mahmoud227572" credentials and in console home page                                
+                                                    When Click Try our new enhanced dashboard                                                    
+                                                              And Click "Day" view                                                              
+                                                            And Click Compare Toggle                                                            
+                                       Then Compare Toggle is switched on and Comparison Date is displayed                                       
+                                                         And All charts are fully loaded                                                         
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
+[INFO ] 2023-12-07 15:26:01.896 [TestNG-test=cucumber test runner-1] ReportManager - Scenario Hook: BEFORE
+[INFO ] 2023-12-07 15:26:01.953 [TestNG-test=cucumber test runner-1] ReportManager - Setting "targetOperatingSystem" property with "windows".
+[INFO ] 2023-12-07 15:26:01.975 [TestNG-test=cucumber test runner-1] ReportManager - Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--start-maximized, --remote-allow-origins=*, --enable-automation, --disable-background-timer-..., --disable-backgrounding-occ..., --disable-features=Calculat..., --disable-hang-monitor, --disable-domain-reliability, --disable-renderer-backgrou..., --disable-features=Autofill..., --metrics-recording-only, --no-first-run, --no-default-browser-check, --silent-debugger-extension..., --disable-extensions, --disable-component-extensi..., --disable-dev-shm-usage, --disable-features=MediaRouter, --disable-features=Translate, --disable-ipc-flooding-prot..., --disable-background-networ..., --mute-audio, --disable-breakpad, --ignore-certificate-errors, --disable-device-discovery-..., --force-color-profile=srgb, --hide-scrollbars, --host-resolver-rules, --no-pings, --disable-features=AvoidUnn..., --disable-features=Certific..., --disable-sync, --disable-features=Optimiza..., --disable-features=DialMedi..., --disable-features=GlobalMe..., --disable-features=Improved..., --disable-features=LazyFram..., --disable-field-trial-config, --enable-features=NetworkSe..., --enable-features=NetworkSe..., --enable-use-zoom-for-dsf, --log-net-log, --net-log-capture-mode, --disable-client-side-phish..., --disable-default-apps, --disable-features=Interest...], extensions: [], prefs: {download.default_directory: C:\ProgramData\Jenkins\.jen..., download.prompt_for_download: false, profile.default_content_settings.popups: 0}}, pageLoadStrategy: none, timeouts: {pageLoad: 30000, script: 30000}, unhandledPromptBehavior: ignore, webSocketUrl: true}
+[INFO ] 2023-12-07 15:26:01.975 [TestNG-test=cucumber test runner-1] ReportManager - Attempting to run locally on: "windows | Chrome".
+[INFO ] 2023-12-07 15:26:01.975 [TestNG-test=cucumber test runner-1] ReportManager - Identifying OS/Driver combination. Please note that if a new browser/driver executable will be downloaded it may take some time depending on your connection...
+[WARN ] 2023-12-07 15:26:08.016 [TestNG-test=cucumber test runner-1] ReportManager - Dec 07, 2023 3:26:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+[WARN ] 2023-12-07 15:26:08.017 [TestNG-test=cucumber test runner-1] ReportManager - WARNING: Unable to find an exact match for CDP version 119, so returning the closest version found: 117
+[INFO ] 2023-12-07 15:26:08.058 [TestNG-test=cucumber test runner-1] ReportManager - Successfully Opened: "windows | Chrome".
+[INFO ] 2023-12-07 15:26:08.151 [TestNG-test=cucumber test runner-1] ReportManager - Target URL: "https://console.foodics.dev/"
+[INFO ] 2023-12-07 15:26:08.207 [TestNG-test=cucumber test runner-1] ReportManager - Initial URL: "about:blank"
+[INFO ] 2023-12-07 15:26:11.831 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955570607_runScenario_Navigate to url_passed'
+[INFO ] 2023-12-07 15:26:11.837 [TestNG-test=cucumber test runner-1] ReportManager - Scenario Step: Given User is logged in with "mahmoud227572" credentials and in console home page
+[INFO ] 2023-12-07 15:26:12.961 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955572853_runScenario_Type_passed'
+[INFO ] 2023-12-07 15:26:13.847 [TestNG-test=cucumber test runner-1] ReportManager - Click element.
+[INFO ] 2023-12-07 15:26:17.203 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955577081_runScenario_Type_passed'
+[INFO ] 2023-12-07 15:26:17.526 [TestNG-test=cucumber test runner-1] ReportManager - Click element.
+[INFO ] 2023-12-07 15:26:25.476 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955585395_runScenario_Type_passed'
+[INFO ] 2023-12-07 15:26:27.458 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955587382_runScenario_Type_passed'
+[INFO ] 2023-12-07 15:26:28.248 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955588178_runScenario_Type_passed'
+[INFO ] 2023-12-07 15:26:28.413 [TestNG-test=cucumber test runner-1] ReportManager - Click "Log In".
+[INFO ] 2023-12-07 15:26:30.325 [TestNG-test=cucumber test runner-1] ReportManager - Expected condition failed: waiting for com.shaft.listeners.internal.WebDriverListener$$Lambda$1158/0x0000000801306a60@542ed404 (tried for 0 second(s) with 100 milliseconds interval) || no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="nprogress"]/div[1]"}
+[WARN ] 2023-12-07 15:26:30.329 [TestNG-test=cucumber test runner-1] ReportManager - Dec 07, 2023 3:26:30 PM org.openqa.selenium.support.events.EventFiringDecorator callListenerMethod
+[WARN ] 2023-12-07 15:26:30.330 [TestNG-test=cucumber test runner-1] ReportManager - WARNING: null
+[WARN ] 2023-12-07 15:26:30.330 [TestNG-test=cucumber test runner-1] ReportManager - java.lang.reflect.InvocationTargetException
+[WARN ] 2023-12-07 15:26:30.330 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[WARN ] 2023-12-07 15:26:30.330 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[WARN ] 2023-12-07 15:26:30.330 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[WARN ] 2023-12-07 15:26:30.331 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+[WARN ] 2023-12-07 15:26:30.331 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.events.EventFiringDecorator.callListenerMethod(EventFiringDecorator.java:328)
+[WARN ] 2023-12-07 15:26:30.331 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.events.EventFiringDecorator.fireBeforeEvents(EventFiringDecorator.java:245)
+[WARN ] 2023-12-07 15:26:30.331 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.events.EventFiringDecorator.lambda$beforeCall$0(EventFiringDecorator.java:181)
+[WARN ] 2023-12-07 15:26:30.331 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.util.Arrays$ArrayList.forEach(Arrays.java:4204)
+[WARN ] 2023-12-07 15:26:30.332 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.events.EventFiringDecorator.beforeCall(EventFiringDecorator.java:181)
+[WARN ] 2023-12-07 15:26:30.332 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.decorators.DefaultDecorated.beforeCall(DefaultDecorated.java:43)
+[WARN ] 2023-12-07 15:26:30.332 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:320)
+[WARN ] 2023-12-07 15:26:30.332 [TestNG-test=cucumber test runner-1] ReportManager - 	at net.bytebuddy.renamed.java.lang.Object$ByteBuddy$D1KfSLQT.findElement(Unknown Source)
+[WARN ] 2023-12-07 15:26:30.332 [TestNG-test=cucumber test runner-1] ReportManager - 	at utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+[WARN ] 2023-12-07 15:26:30.332 [TestNG-test=cucumber test runner-1] ReportManager - 	at pages.LoginPage.clickOnLoginButton(LoginPage.java:38)
+[WARN ] 2023-12-07 15:26:30.333 [TestNG-test=cucumber test runner-1] ReportManager - 	at pages.LoginPage.loginToConsole(LoginPage.java:52)
+[WARN ] 2023-12-07 15:26:30.333 [TestNG-test=cucumber test runner-1] ReportManager - 	at steps.TC65_DashboardDateComparison.userIsLoggedInToConsole(TC65_DashboardDateComparison.java:27)
+[WARN ] 2023-12-07 15:26:30.333 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[WARN ] 2023-12-07 15:26:30.333 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[WARN ] 2023-12-07 15:26:30.333 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[WARN ] 2023-12-07 15:26:30.333 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+[WARN ] 2023-12-07 15:26:30.333 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+[WARN ] 2023-12-07 15:26:30.335 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+[WARN ] 2023-12-07 15:26:30.335 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+[WARN ] 2023-12-07 15:26:30.335 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+[WARN ] 2023-12-07 15:26:30.335 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+[WARN ] 2023-12-07 15:26:30.335 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+[WARN ] 2023-12-07 15:26:30.336 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+[WARN ] 2023-12-07 15:26:30.336 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+[WARN ] 2023-12-07 15:26:30.336 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+[WARN ] 2023-12-07 15:26:30.336 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+[WARN ] 2023-12-07 15:26:30.337 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+[WARN ] 2023-12-07 15:26:30.337 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+[WARN ] 2023-12-07 15:26:30.337 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+[WARN ] 2023-12-07 15:26:30.337 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+[WARN ] 2023-12-07 15:26:30.338 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+[WARN ] 2023-12-07 15:26:30.338 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+[WARN ] 2023-12-07 15:26:30.338 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+[WARN ] 2023-12-07 15:26:30.338 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+[WARN ] 2023-12-07 15:26:30.338 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[WARN ] 2023-12-07 15:26:30.339 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[WARN ] 2023-12-07 15:26:30.339 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[WARN ] 2023-12-07 15:26:30.339 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+[WARN ] 2023-12-07 15:26:30.339 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+[WARN ] 2023-12-07 15:26:30.339 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+[WARN ] 2023-12-07 15:26:30.340 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+[WARN ] 2023-12-07 15:26:30.340 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+[WARN ] 2023-12-07 15:26:30.340 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+[WARN ] 2023-12-07 15:26:30.340 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+[WARN ] 2023-12-07 15:26:30.340 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+[WARN ] 2023-12-07 15:26:30.341 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+[WARN ] 2023-12-07 15:26:30.341 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[WARN ] 2023-12-07 15:26:30.341 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[WARN ] 2023-12-07 15:26:30.341 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.Thread.run(Thread.java:833)
+[WARN ] 2023-12-07 15:26:30.342 [TestNG-test=cucumber test runner-1] ReportManager - Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.shaft.listeners.internal.WebDriverListener$$Lambda$1158/0x0000000801306a60@542ed404 (tried for 0 second(s) with 100 milliseconds interval)
+[WARN ] 2023-12-07 15:26:30.342 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:262)
+[WARN ] 2023-12-07 15:26:30.342 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+[WARN ] 2023-12-07 15:26:30.342 [TestNG-test=cucumber test runner-1] ReportManager - 	at com.shaft.listeners.internal.WebDriverListener.beforeFindElement(WebDriverListener.java:62)
+[WARN ] 2023-12-07 15:26:30.342 [TestNG-test=cucumber test runner-1] ReportManager - 	... 53 more
+[WARN ] 2023-12-07 15:26:30.342 [TestNG-test=cucumber test runner-1] ReportManager - Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="nprogress"]/div[1]"}
+[WARN ] 2023-12-07 15:26:30.343 [TestNG-test=cucumber test runner-1] ReportManager -   (Session info: chrome=119.0.6045.200)
+[WARN ] 2023-12-07 15:26:30.343 [TestNG-test=cucumber test runner-1] ReportManager - For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[WARN ] 2023-12-07 15:26:30.343 [TestNG-test=cucumber test runner-1] ReportManager - Build info: version: '4.13.0', revision: 'ba948ece5b*'
+[WARN ] 2023-12-07 15:26:30.343 [TestNG-test=cucumber test runner-1] ReportManager - System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+[WARN ] 2023-12-07 15:26:30.343 [TestNG-test=cucumber test runner-1] ReportManager - Driver info: org.openqa.selenium.chrome.ChromeDriver
+[WARN ] 2023-12-07 15:26:30.343 [TestNG-test=cucumber test runner-1] ReportManager - Command: [e8cef44679c5800c01135526bf763518, findElement {using=xpath, value=//*[@id="nprogress"]/div[1]}]
+[WARN ] 2023-12-07 15:26:30.343 [TestNG-test=cucumber test runner-1] ReportManager - Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.200, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60555}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60555/devtoo..., se:cdpVersion: 119.0.6045.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 30000, script: 30000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:16965/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+[WARN ] 2023-12-07 15:26:30.344 [TestNG-test=cucumber test runner-1] ReportManager - Session ID: e8cef44679c5800c01135526bf763518
+[WARN ] 2023-12-07 15:26:30.344 [TestNG-test=cucumber test runner-1] ReportManager - 	at jdk.internal.reflect.GeneratedConstructorAccessor33.newInstance(Unknown Source)
+[WARN ] 2023-12-07 15:26:30.344 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[WARN ] 2023-12-07 15:26:30.344 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+[WARN ] 2023-12-07 15:26:30.344 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+[WARN ] 2023-12-07 15:26:30.344 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+[WARN ] 2023-12-07 15:26:30.344 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+[WARN ] 2023-12-07 15:26:30.345 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+[WARN ] 2023-12-07 15:26:30.345 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+[WARN ] 2023-12-07 15:26:30.345 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+[WARN ] 2023-12-07 15:26:30.345 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+[WARN ] 2023-12-07 15:26:30.345 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+[WARN ] 2023-12-07 15:26:30.345 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+[WARN ] 2023-12-07 15:26:30.345 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+[WARN ] 2023-12-07 15:26:30.345 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+[WARN ] 2023-12-07 15:26:30.345 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+[WARN ] 2023-12-07 15:26:30.346 [TestNG-test=cucumber test runner-1] ReportManager - 	at com.shaft.listeners.internal.WebDriverListener.lambda$beforeFindElement$0(WebDriverListener.java:62)
+[WARN ] 2023-12-07 15:26:30.346 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+[WARN ] 2023-12-07 15:26:30.346 [TestNG-test=cucumber test runner-1] ReportManager - 	... 54 more
+[INFO ] 2023-12-07 15:26:30.368 [TestNG-test=cucumber test runner-1] ReportManager - Find element action failed.
+[INFO ] 2023-12-07 15:26:30.577 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955590468_runScenario_findElement_failed'
+[ERROR] 2023-12-07 15:26:30.579 [TestNG-test=cucumber test runner-1] ReportManager - java.lang.reflect.InvocationTargetException: null
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:249)
+ org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:321)
+ net.bytebuddy.renamed.java.lang.Object$ByteBuddy$D1KfSLQT.findElement(Unknown Source)
+ utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+ pages.LoginPage.clickOnLoginButton(LoginPage.java:38)
+ pages.LoginPage.loginToConsole(LoginPage.java:52)
+ steps.TC65_DashboardDateComparison.userIsLoggedInToConsole(TC65_DashboardDateComparison.java:27)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+ io.cucumber.java.Invoker.invoke(Invoker.java:24)
+ io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+ io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+ io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+ io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+ io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+ io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+ io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+ io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+ io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+ io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+ io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+ io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+ io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+ io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+ io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+ io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+ org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+ org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+ org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+ org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+ org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base/java.lang.Thread.run(Thread.java:833)
+
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="nprogress"]/div[1]"}
+  (Session info: chrome=119.0.6045.200)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e8cef44679c5800c01135526bf763518, findElement {using=xpath, value=//*[@id="nprogress"]/div[1]}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.200, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60555}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60555/devtoo..., se:cdpVersion: 119.0.6045.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 30000, script: 30000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:16965/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e8cef44679c5800c01135526bf763518
+ jdk.internal.reflect.GeneratedConstructorAccessor33.newInstance(Unknown Source)
+ java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+ java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+ java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+ org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+ org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+ org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+ org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+ org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+ org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+ org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+ org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:249)
+ org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:321)
+ net.bytebuddy.renamed.java.lang.Object$ByteBuddy$D1KfSLQT.findElement(Unknown Source)
+ utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+ pages.LoginPage.clickOnLoginButton(LoginPage.java:38)
+ pages.LoginPage.loginToConsole(LoginPage.java:52)
+ steps.TC65_DashboardDateComparison.userIsLoggedInToConsole(TC65_DashboardDateComparison.java:27)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+ io.cucumber.java.Invoker.invoke(Invoker.java:24)
+ io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+ io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+ io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+ io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+ io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+ io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+ io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+ io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+ io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+ io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+ io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+ io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+ io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+ io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+ io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+ io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+ org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+ org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+ org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+ org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+ org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base/java.lang.Thread.run(Thread.java:833)
+[INFO ] 2023-12-07 15:26:30.581 [TestNG-test=cucumber test runner-1] ReportManager - no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="nprogress"]/div[1]"}
+[INFO ] 2023-12-07 15:26:30.581 [TestNG-test=cucumber test runner-1] ReportManager -   (Session info: chrome=119.0.6045.200)
+[INFO ] 2023-12-07 15:26:30.582 [TestNG-test=cucumber test runner-1] ReportManager - For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[INFO ] 2023-12-07 15:26:30.582 [TestNG-test=cucumber test runner-1] ReportManager - Build info: version: '4.13.0', revision: 'ba948ece5b*'
+[INFO ] 2023-12-07 15:26:30.582 [TestNG-test=cucumber test runner-1] ReportManager - System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+[INFO ] 2023-12-07 15:26:30.582 [TestNG-test=cucumber test runner-1] ReportManager - Driver info: org.openqa.selenium.chrome.ChromeDriver
+[INFO ] 2023-12-07 15:26:30.582 [TestNG-test=cucumber test runner-1] ReportManager - Command: [e8cef44679c5800c01135526bf763518, findElement {using=xpath, value=//*[@id="nprogress"]/div[1]}]
+[INFO ] 2023-12-07 15:26:30.583 [TestNG-test=cucumber test runner-1] ReportManager - Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.200, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60555}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60555/devtoo..., se:cdpVersion: 119.0.6045.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 30000, script: 30000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:16965/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+[INFO ] 2023-12-07 15:26:30.583 [TestNG-test=cucumber test runner-1] ReportManager - Session ID: e8cef44679c5800c01135526bf763518
+[INFO ] 2023-12-07 15:26:33.072 [TestNG-test=cucumber test runner-1] ReportManager - Attempting to getAttribute "hidden" from elementLocator "By.id: sidebar_dashboard".
+[INFO ] 2023-12-07 15:26:34.702 [TestNG-test=cucumber test runner-1] ReportManager - Get attribute from "dashboard Dashboard".
+[INFO ] 2023-12-07 15:26:34.711 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955594608_runScenario_Get attribute_passed'
+[INFO ] 2023-12-07 15:26:34.715 [TestNG-test=cucumber test runner-1] ReportManager - Expected "null", and actual "null"
+[INFO ] 2023-12-07 15:26:35.337 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateElementAttribute" PASSED. Expected "Value Should be 'null' for the 'hidden' attribute, element locator 'By.id: sidebar_dashboard'" and Actual "null". Comparison Type "EQUALS". Validation Type "POSITIVE".
+[INFO ] 2023-12-07 15:26:35.343 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955595260_runScenario_ValidateElementAttribute_passed'
+[INFO ] 2023-12-07 15:26:35.943 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955595783_runScenario_Get current url_passed'
+[INFO ] 2023-12-07 15:26:35.943 [TestNG-test=cucumber test runner-1] ReportManager - Expected "https://console.foodics.dev/dashboard", and actual "https://console.foodics.dev/dashboard"
+[INFO ] 2023-12-07 15:26:36.252 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateBrowserAttribute" PASSED. Expected "Value Should be 'https://console.foodics.dev/dashboard' for the 'currenturl' attribute" and Actual "https://console.foodics.dev/dashboard". Comparison Type "EQUALS". Validation Type "POSITIVE".
+[INFO ] 2023-12-07 15:26:36.258 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955596128_runScenario_ValidateBrowserAttribute_passed'
+[INFO ] 2023-12-07 15:26:36.261 [TestNG-test=cucumber test runner-1] ReportManager -   [32mGiven [0m[32mUser is logged in with [0m[32m[1m"mahmoud227572"[0m[32m credentials and in console home page[0m                                       [90m# steps.TC65_DashboardDateComparison.userIsLoggedInToConsole(java.lang.String)[0m
+[INFO ] 2023-12-07 15:26:36.270 [TestNG-test=cucumber test runner-1] ReportManager - Scenario Step: When Click Try our new enhanced dashboard
+[INFO ] 2023-12-07 15:26:38.074 [TestNG-test=cucumber test runner-1] ReportManager - Is displayed action failed.
+[INFO ] 2023-12-07 15:26:38.268 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955598176_runScenario_isDisplayed_failed'
+[ERROR] 2023-12-07 15:26:38.269 [TestNG-test=cucumber test runner-1] ReportManager - java.lang.reflect.InvocationTargetException: null
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:249)
+ org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:321)
+ net.bytebuddy.renamed.java.lang.Object$ByteBuddy$0jcpHUDE.isDisplayed(Unknown Source)
+ org.openqa.selenium.support.ui.ExpectedConditions.isInvisible(ExpectedConditions.java:1374)
+ org.openqa.selenium.support.ui.ExpectedConditions.access$200(ExpectedConditions.java:37)
+ org.openqa.selenium.support.ui.ExpectedConditions$48.apply(ExpectedConditions.java:1362)
+ org.openqa.selenium.support.ui.ExpectedConditions$48.apply(ExpectedConditions.java:1358)
+ org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+ utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+ pages.DashboardPage.clickOnTryEnhancedDashboardLink(DashboardPage.java:36)
+ steps.TC65_DashboardDateComparison.tryNewEnhancedDashboard(TC65_DashboardDateComparison.java:42)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+ io.cucumber.java.Invoker.invoke(Invoker.java:24)
+ io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+ io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+ io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+ io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+ io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+ io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+ io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+ io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+ io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+ io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+ io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+ io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+ io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+ io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+ io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+ io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+ org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+ org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+ org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+ org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+ org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base/java.lang.Thread.run(Thread.java:833)
+
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: No node with given id found
+  (Session info: chrome=119.0.6045.200)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e8cef44679c5800c01135526bf763518, isElementDisplayed {id=1EF7C5D2E4F829821237386E65202EAB_element_69}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.200, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60555}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60555/devtoo..., se:cdpVersion: 119.0.6045.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 30000, script: 30000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:16965/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e8cef44679c5800c01135526bf763518)] -> xpath: //*[@id="nprogress"]/div[1]]
+Session ID: e8cef44679c5800c01135526bf763518
+ jdk.internal.reflect.GeneratedConstructorAccessor33.newInstance(Unknown Source)
+ java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+ java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+ java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+ org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+ org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+ org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+ org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+ org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
+ org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:283)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:249)
+ org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:321)
+ net.bytebuddy.renamed.java.lang.Object$ByteBuddy$0jcpHUDE.isDisplayed(Unknown Source)
+ org.openqa.selenium.support.ui.ExpectedConditions.isInvisible(ExpectedConditions.java:1374)
+ org.openqa.selenium.support.ui.ExpectedConditions.access$200(ExpectedConditions.java:37)
+ org.openqa.selenium.support.ui.ExpectedConditions$48.apply(ExpectedConditions.java:1362)
+ org.openqa.selenium.support.ui.ExpectedConditions$48.apply(ExpectedConditions.java:1358)
+ org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+ utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+ pages.DashboardPage.clickOnTryEnhancedDashboardLink(DashboardPage.java:36)
+ steps.TC65_DashboardDateComparison.tryNewEnhancedDashboard(TC65_DashboardDateComparison.java:42)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+ io.cucumber.java.Invoker.invoke(Invoker.java:24)
+ io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+ io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+ io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+ io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+ io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+ io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+ io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+ io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+ io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+ io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+ io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+ io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+ io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+ io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+ io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+ io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+ org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+ org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+ org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+ org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+ org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base/java.lang.Thread.run(Thread.java:833)
+[INFO ] 2023-12-07 15:26:38.487 [TestNG-test=cucumber test runner-1] ReportManager - Click element.
+[INFO ] 2023-12-07 15:26:38.962 [TestNG-test=cucumber test runner-1] ReportManager - Expected condition failed: waiting for com.shaft.listeners.internal.WebDriverListener$$Lambda$1158/0x0000000801306a60@33438717 (tried for 0 second(s) with 100 milliseconds interval) || no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="nprogress"]/div[1]"}
+[WARN ] 2023-12-07 15:26:38.963 [TestNG-test=cucumber test runner-1] ReportManager - Dec 07, 2023 3:26:38 PM org.openqa.selenium.support.events.EventFiringDecorator callListenerMethod
+[WARN ] 2023-12-07 15:26:38.963 [TestNG-test=cucumber test runner-1] ReportManager - WARNING: null
+[WARN ] 2023-12-07 15:26:38.963 [TestNG-test=cucumber test runner-1] ReportManager - java.lang.reflect.InvocationTargetException
+[WARN ] 2023-12-07 15:26:38.963 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[WARN ] 2023-12-07 15:26:38.965 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[WARN ] 2023-12-07 15:26:38.965 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[WARN ] 2023-12-07 15:26:38.965 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+[WARN ] 2023-12-07 15:26:38.965 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.events.EventFiringDecorator.callListenerMethod(EventFiringDecorator.java:328)
+[WARN ] 2023-12-07 15:26:38.965 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.events.EventFiringDecorator.fireBeforeEvents(EventFiringDecorator.java:245)
+[WARN ] 2023-12-07 15:26:38.965 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.events.EventFiringDecorator.lambda$beforeCall$0(EventFiringDecorator.java:181)
+[WARN ] 2023-12-07 15:26:38.966 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.util.Arrays$ArrayList.forEach(Arrays.java:4204)
+[WARN ] 2023-12-07 15:26:38.966 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.events.EventFiringDecorator.beforeCall(EventFiringDecorator.java:181)
+[WARN ] 2023-12-07 15:26:38.966 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.decorators.DefaultDecorated.beforeCall(DefaultDecorated.java:43)
+[WARN ] 2023-12-07 15:26:38.966 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:320)
+[WARN ] 2023-12-07 15:26:38.966 [TestNG-test=cucumber test runner-1] ReportManager - 	at net.bytebuddy.renamed.java.lang.Object$ByteBuddy$IPeWUaAS.findElement(Unknown Source)
+[WARN ] 2023-12-07 15:26:38.966 [TestNG-test=cucumber test runner-1] ReportManager - 	at utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+[WARN ] 2023-12-07 15:26:38.966 [TestNG-test=cucumber test runner-1] ReportManager - 	at pages.DashboardPage.clickOnTryEnhancedDashboardLink(DashboardPage.java:38)
+[WARN ] 2023-12-07 15:26:38.967 [TestNG-test=cucumber test runner-1] ReportManager - 	at steps.TC65_DashboardDateComparison.tryNewEnhancedDashboard(TC65_DashboardDateComparison.java:42)
+[WARN ] 2023-12-07 15:26:38.967 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[WARN ] 2023-12-07 15:26:38.967 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[WARN ] 2023-12-07 15:26:38.967 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[WARN ] 2023-12-07 15:26:38.967 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+[WARN ] 2023-12-07 15:26:38.967 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+[WARN ] 2023-12-07 15:26:38.967 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+[WARN ] 2023-12-07 15:26:38.967 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+[WARN ] 2023-12-07 15:26:38.968 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+[WARN ] 2023-12-07 15:26:38.968 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+[WARN ] 2023-12-07 15:26:38.968 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+[WARN ] 2023-12-07 15:26:38.968 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+[WARN ] 2023-12-07 15:26:38.968 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+[WARN ] 2023-12-07 15:26:38.968 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+[WARN ] 2023-12-07 15:26:38.968 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+[WARN ] 2023-12-07 15:26:38.969 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+[WARN ] 2023-12-07 15:26:38.969 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+[WARN ] 2023-12-07 15:26:38.969 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+[WARN ] 2023-12-07 15:26:38.969 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+[WARN ] 2023-12-07 15:26:38.969 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+[WARN ] 2023-12-07 15:26:38.969 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+[WARN ] 2023-12-07 15:26:38.969 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+[WARN ] 2023-12-07 15:26:38.970 [TestNG-test=cucumber test runner-1] ReportManager - 	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+[WARN ] 2023-12-07 15:26:38.970 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[WARN ] 2023-12-07 15:26:38.970 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[WARN ] 2023-12-07 15:26:38.970 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[WARN ] 2023-12-07 15:26:38.970 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+[WARN ] 2023-12-07 15:26:38.970 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+[WARN ] 2023-12-07 15:26:38.970 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+[WARN ] 2023-12-07 15:26:38.971 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+[WARN ] 2023-12-07 15:26:38.971 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+[WARN ] 2023-12-07 15:26:38.971 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+[WARN ] 2023-12-07 15:26:38.971 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+[WARN ] 2023-12-07 15:26:38.971 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+[WARN ] 2023-12-07 15:26:38.971 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+[WARN ] 2023-12-07 15:26:38.971 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[WARN ] 2023-12-07 15:26:38.971 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[WARN ] 2023-12-07 15:26:38.972 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.Thread.run(Thread.java:833)
+[WARN ] 2023-12-07 15:26:38.972 [TestNG-test=cucumber test runner-1] ReportManager - Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for com.shaft.listeners.internal.WebDriverListener$$Lambda$1158/0x0000000801306a60@33438717 (tried for 0 second(s) with 100 milliseconds interval)
+[WARN ] 2023-12-07 15:26:38.972 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:262)
+[WARN ] 2023-12-07 15:26:38.972 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+[WARN ] 2023-12-07 15:26:38.972 [TestNG-test=cucumber test runner-1] ReportManager - 	at com.shaft.listeners.internal.WebDriverListener.beforeFindElement(WebDriverListener.java:62)
+[WARN ] 2023-12-07 15:26:38.972 [TestNG-test=cucumber test runner-1] ReportManager - 	... 52 more
+[WARN ] 2023-12-07 15:26:38.973 [TestNG-test=cucumber test runner-1] ReportManager - Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="nprogress"]/div[1]"}
+[WARN ] 2023-12-07 15:26:38.973 [TestNG-test=cucumber test runner-1] ReportManager -   (Session info: chrome=119.0.6045.200)
+[WARN ] 2023-12-07 15:26:38.973 [TestNG-test=cucumber test runner-1] ReportManager - For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[WARN ] 2023-12-07 15:26:38.973 [TestNG-test=cucumber test runner-1] ReportManager - Build info: version: '4.13.0', revision: 'ba948ece5b*'
+[WARN ] 2023-12-07 15:26:38.973 [TestNG-test=cucumber test runner-1] ReportManager - System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+[WARN ] 2023-12-07 15:26:38.974 [TestNG-test=cucumber test runner-1] ReportManager - Driver info: org.openqa.selenium.chrome.ChromeDriver
+[WARN ] 2023-12-07 15:26:38.974 [TestNG-test=cucumber test runner-1] ReportManager - Command: [e8cef44679c5800c01135526bf763518, findElement {using=xpath, value=//*[@id="nprogress"]/div[1]}]
+[WARN ] 2023-12-07 15:26:38.974 [TestNG-test=cucumber test runner-1] ReportManager - Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.200, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60555}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60555/devtoo..., se:cdpVersion: 119.0.6045.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 30000, script: 30000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:16965/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+[WARN ] 2023-12-07 15:26:38.974 [TestNG-test=cucumber test runner-1] ReportManager - Session ID: e8cef44679c5800c01135526bf763518
+[WARN ] 2023-12-07 15:26:38.974 [TestNG-test=cucumber test runner-1] ReportManager - 	at jdk.internal.reflect.GeneratedConstructorAccessor33.newInstance(Unknown Source)
+[WARN ] 2023-12-07 15:26:38.974 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[WARN ] 2023-12-07 15:26:38.974 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+[WARN ] 2023-12-07 15:26:38.975 [TestNG-test=cucumber test runner-1] ReportManager - 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+[WARN ] 2023-12-07 15:26:38.975 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+[WARN ] 2023-12-07 15:26:38.975 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+[WARN ] 2023-12-07 15:26:38.975 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+[WARN ] 2023-12-07 15:26:38.975 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+[WARN ] 2023-12-07 15:26:38.975 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+[WARN ] 2023-12-07 15:26:38.975 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+[WARN ] 2023-12-07 15:26:38.976 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+[WARN ] 2023-12-07 15:26:38.976 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+[WARN ] 2023-12-07 15:26:38.976 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+[WARN ] 2023-12-07 15:26:38.976 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+[WARN ] 2023-12-07 15:26:38.976 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+[WARN ] 2023-12-07 15:26:38.976 [TestNG-test=cucumber test runner-1] ReportManager - 	at com.shaft.listeners.internal.WebDriverListener.lambda$beforeFindElement$0(WebDriverListener.java:62)
+[WARN ] 2023-12-07 15:26:38.976 [TestNG-test=cucumber test runner-1] ReportManager - 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+[WARN ] 2023-12-07 15:26:38.976 [TestNG-test=cucumber test runner-1] ReportManager - 	... 53 more
+[INFO ] 2023-12-07 15:26:38.992 [TestNG-test=cucumber test runner-1] ReportManager - Find element action failed.
+[INFO ] 2023-12-07 15:26:39.187 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955599113_runScenario_findElement_failed'
+[ERROR] 2023-12-07 15:26:39.188 [TestNG-test=cucumber test runner-1] ReportManager - java.lang.reflect.InvocationTargetException: null
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:249)
+ org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:321)
+ net.bytebuddy.renamed.java.lang.Object$ByteBuddy$IPeWUaAS.findElement(Unknown Source)
+ utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+ pages.DashboardPage.clickOnTryEnhancedDashboardLink(DashboardPage.java:38)
+ steps.TC65_DashboardDateComparison.tryNewEnhancedDashboard(TC65_DashboardDateComparison.java:42)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+ io.cucumber.java.Invoker.invoke(Invoker.java:24)
+ io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+ io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+ io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+ io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+ io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+ io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+ io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+ io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+ io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+ io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+ io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+ io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+ io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+ io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+ io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+ io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+ org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+ org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+ org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+ org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+ org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base/java.lang.Thread.run(Thread.java:833)
+
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="nprogress"]/div[1]"}
+  (Session info: chrome=119.0.6045.200)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e8cef44679c5800c01135526bf763518, findElement {using=xpath, value=//*[@id="nprogress"]/div[1]}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.200, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60555}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60555/devtoo..., se:cdpVersion: 119.0.6045.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 30000, script: 30000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:16965/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e8cef44679c5800c01135526bf763518
+ jdk.internal.reflect.GeneratedConstructorAccessor33.newInstance(Unknown Source)
+ java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+ java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+ java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+ org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+ org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+ org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+ org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+ org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+ org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+ org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+ org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:249)
+ org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:321)
+ net.bytebuddy.renamed.java.lang.Object$ByteBuddy$IPeWUaAS.findElement(Unknown Source)
+ utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+ pages.DashboardPage.clickOnTryEnhancedDashboardLink(DashboardPage.java:38)
+ steps.TC65_DashboardDateComparison.tryNewEnhancedDashboard(TC65_DashboardDateComparison.java:42)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+ io.cucumber.java.Invoker.invoke(Invoker.java:24)
+ io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+ io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+ io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+ io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+ io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+ io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+ io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+ io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+ io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+ io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+ io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+ io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+ io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+ io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+ io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+ io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+ org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+ org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+ org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+ org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+ org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base/java.lang.Thread.run(Thread.java:833)
+[INFO ] 2023-12-07 15:26:39.189 [TestNG-test=cucumber test runner-1] ReportManager - no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="nprogress"]/div[1]"}
+[INFO ] 2023-12-07 15:26:39.189 [TestNG-test=cucumber test runner-1] ReportManager -   (Session info: chrome=119.0.6045.200)
+[INFO ] 2023-12-07 15:26:39.189 [TestNG-test=cucumber test runner-1] ReportManager - For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[INFO ] 2023-12-07 15:26:39.189 [TestNG-test=cucumber test runner-1] ReportManager - Build info: version: '4.13.0', revision: 'ba948ece5b*'
+[INFO ] 2023-12-07 15:26:39.189 [TestNG-test=cucumber test runner-1] ReportManager - System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+[INFO ] 2023-12-07 15:26:39.189 [TestNG-test=cucumber test runner-1] ReportManager - Driver info: org.openqa.selenium.chrome.ChromeDriver
+[INFO ] 2023-12-07 15:26:39.190 [TestNG-test=cucumber test runner-1] ReportManager - Command: [e8cef44679c5800c01135526bf763518, findElement {using=xpath, value=//*[@id="nprogress"]/div[1]}]
+[INFO ] 2023-12-07 15:26:39.190 [TestNG-test=cucumber test runner-1] ReportManager - Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.200, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60555}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60555/devtoo..., se:cdpVersion: 119.0.6045.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 30000, script: 30000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:16965/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+[INFO ] 2023-12-07 15:26:39.190 [TestNG-test=cucumber test runner-1] ReportManager - Session ID: e8cef44679c5800c01135526bf763518
+[INFO ] 2023-12-07 15:26:39.485 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955599412_runScenario_Get current url_passed'
+[INFO ] 2023-12-07 15:26:39.486 [TestNG-test=cucumber test runner-1] ReportManager - Expected "https://console.foodics.dev/dashboard-beta", and actual "https://console.foodics.dev/dashboard-beta"
+[INFO ] 2023-12-07 15:26:39.692 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateBrowserAttribute" PASSED. Expected "Value Should be 'https://console.foodics.dev/dashboard-beta' for the 'currenturl' attribute" and Actual "https://console.foodics.dev/dashboard-beta". Comparison Type "EQUALS". Validation Type "POSITIVE".
+[INFO ] 2023-12-07 15:26:39.696 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955599601_runScenario_ValidateBrowserAttribute_passed'
+[INFO ] 2023-12-07 15:26:40.075 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955599980_runScenario_Get current window title_passed'
+[INFO ] 2023-12-07 15:26:40.076 [TestNG-test=cucumber test runner-1] ReportManager - Expected "Dashboard - Foodics", and actual "Dashboard - Foodics"
+[INFO ] 2023-12-07 15:26:40.329 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateBrowserAttribute" PASSED. Expected "Value Should be 'Dashboard - Foodics' for the 'title' attribute" and Actual "Dashboard - Foodics". Comparison Type "EQUALS". Validation Type "POSITIVE".
+[INFO ] 2023-12-07 15:26:40.331 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955600207_runScenario_ValidateBrowserAttribute_passed'
+[INFO ] 2023-12-07 15:26:40.332 [TestNG-test=cucumber test runner-1] ReportManager -   [32mWhen [0m[32mClick Try our new enhanced dashboard[0m                                                                               [90m# steps.TC65_DashboardDateComparison.tryNewEnhancedDashboard()[0m
+[INFO ] 2023-12-07 15:26:40.337 [TestNG-test=cucumber test runner-1] ReportManager - Scenario Step: And Click "Day" view
+[INFO ] 2023-12-07 15:26:40.466 [TestNG-test=cucumber test runner-1] ReportManager - Attempting to getAttribute "class" from elementLocator "By.xpath: (//div[contains(@class,'py-1 px-2')])[1]".
+[INFO ] 2023-12-07 15:26:41.135 [TestNG-test=cucumber test runner-1] ReportManager - Get attribute "py-1 px-2 md:py-2 md:px-4 text-callout border-s border-y h-10 rounded-s w-1/3 sm:w-auto text-center bg-gray-100 bg-primary-300 text-white md:font-bold bg-gray-400 text-gray-600 cursor-not-allowed font-normal" from "By.xpath: (//div[contains(@class,'py-1 px-2')])[1]".
+[INFO ] 2023-12-07 15:26:41.138 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955601037_runScenario_Get attribute_passed'
+[INFO ] 2023-12-07 15:26:41.138 [TestNG-test=cucumber test runner-1] ReportManager - Expected "bg-primary-300 text-white md:font-bold", and actual "py-1 px-2 md:py-2 md:px-4 text-callout border-s border-y h-10 rounded-s w-1/3 sm:w-auto text-center bg-gray-100 bg-primary-300 text-white md:font-bold bg-gray-400 text-gray-600 cursor-not-allowed font-normal"
+[INFO ] 2023-12-07 15:26:41.758 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateElementAttribute" PASSED. Expected "Value Should be 'bg-primary-300 text-white md:font-bold' for the 'class' attribute, element locator 'By.xpath: (//div[contains(@class,'py-1 px-2')])[1]'" and Actual "py-1 px-2 md:py-2 md:px-4 text-callout border-s border-y h-10 rounded-s w-1/3 sm:w-auto text-center bg-gray-100 bg-primary-300 text-white md:font-bold bg-gray-400 text-gray-600 cursor-not-allowed font-normal". Comparison Type "CONTAINS". Validation Type "POSITIVE".
+[INFO ] 2023-12-07 15:26:41.760 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955601627_runScenario_ValidateElementAttribute_passed'
+[INFO ] 2023-12-07 15:26:42.566 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955602485_runScenario_Get text_passed'
+[INFO ] 2023-12-07 15:26:42.569 [TestNG-test=cucumber test runner-1] ReportManager -   [32mAnd [0m[32mClick [0m[32m[1m"Day"[0m[32m view[0m                                                                                                    [90m# steps.TC65_DashboardDateComparison.clickDayWeekMonth(java.lang.String)[0m
+[INFO ] 2023-12-07 15:26:42.570 [TestNG-test=cucumber test runner-1] ReportManager - Scenario Step: And Click Compare Toggle
+[INFO ] 2023-12-07 15:26:42.672 [TestNG-test=cucumber test runner-1] ReportManager - Attempting to getAttribute "hidden" from elementLocator "By.id: datepicker.trigger".
+[INFO ] 2023-12-07 15:26:43.317 [TestNG-test=cucumber test runner-1] ReportManager - Get attribute from "2023-12-07 calendar_today".
+[INFO ] 2023-12-07 15:26:43.319 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955603243_runScenario_Get attribute_passed'
+[INFO ] 2023-12-07 15:26:43.320 [TestNG-test=cucumber test runner-1] ReportManager - Expected "null", and actual "null"
+[INFO ] 2023-12-07 15:26:43.726 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateElementAttribute" PASSED. Expected "Value Should be 'null' for the 'hidden' attribute, element locator 'By.id: datepicker.trigger'" and Actual "null". Comparison Type "EQUALS". Validation Type "POSITIVE".
+[INFO ] 2023-12-07 15:26:43.729 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955603661_runScenario_ValidateElementAttribute_passed'
+[INFO ] 2023-12-07 15:26:43.804 [TestNG-test=cucumber test runner-1] ReportManager - Attempting to getAttribute "hidden" from elementLocator "By.className: toggle__handler".
+[INFO ] 2023-12-07 15:26:44.293 [TestNG-test=cucumber test runner-1] ReportManager - Get attribute from "By.className: toggle__handler".
+[INFO ] 2023-12-07 15:26:44.296 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955604235_runScenario_Get attribute_passed'
+[INFO ] 2023-12-07 15:26:44.296 [TestNG-test=cucumber test runner-1] ReportManager - Expected "null", and actual "null"
+[INFO ] 2023-12-07 15:26:44.731 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateElementAttribute" PASSED. Expected "Value Should be 'null' for the 'hidden' attribute, element locator 'By.className: toggle__handler'" and Actual "null". Comparison Type "EQUALS". Validation Type "POSITIVE".
+[INFO ] 2023-12-07 15:26:44.734 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955604648_runScenario_ValidateElementAttribute_passed'
+[INFO ] 2023-12-07 15:26:44.922 [TestNG-test=cucumber test runner-1] ReportManager - Click element.
+[INFO ] 2023-12-07 15:26:50.193 [TestNG-test=cucumber test runner-1] ReportManager - Is displayed action failed.
+[INFO ] 2023-12-07 15:26:50.366 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955610296_runScenario_isDisplayed_failed'
+[ERROR] 2023-12-07 15:26:50.367 [TestNG-test=cucumber test runner-1] ReportManager - java.lang.reflect.InvocationTargetException: null
+ jdk.internal.reflect.GeneratedMethodAccessor32.invoke(Unknown Source)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:249)
+ org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:321)
+ net.bytebuddy.renamed.java.lang.Object$ByteBuddy$V6Y9M04e.isDisplayed(Unknown Source)
+ org.openqa.selenium.support.ui.ExpectedConditions.isInvisible(ExpectedConditions.java:1374)
+ org.openqa.selenium.support.ui.ExpectedConditions.access$200(ExpectedConditions.java:37)
+ org.openqa.selenium.support.ui.ExpectedConditions$48.apply(ExpectedConditions.java:1362)
+ org.openqa.selenium.support.ui.ExpectedConditions$48.apply(ExpectedConditions.java:1358)
+ org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+ utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+ pages.EnhancedDashboardPage.clickOnCompareToggle(EnhancedDashboardPage.java:90)
+ steps.TC65_DashboardDateComparison.clickCompareToggle(TC65_DashboardDateComparison.java:80)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+ io.cucumber.java.Invoker.invoke(Invoker.java:24)
+ io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+ io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+ io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+ io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+ io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+ io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+ io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+ io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+ io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+ io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+ io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+ io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+ io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+ io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+ io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+ io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+ org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+ org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+ org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+ org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+ org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base/java.lang.Thread.run(Thread.java:833)
+
+Caused by: org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=119.0.6045.200)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e8cef44679c5800c01135526bf763518, isElementDisplayed {id=1EF7C5D2E4F829821237386E65202EAB_element_565}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 119.0.6045.200, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60555}, networkConnectionEnabled: false, pageLoadStrategy: none, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60555/devtoo..., se:cdpVersion: 119.0.6045.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 30000, script: 30000}, unhandledPromptBehavior: ignore, webSocketUrl: ws://localhost:16965/sessio..., webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e8cef44679c5800c01135526bf763518)] -> xpath: //*[@id="nprogress"]/div[1]]
+Session ID: e8cef44679c5800c01135526bf763518
+ java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+ java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+ java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+ java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+ org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+ org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+ org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+ org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+ org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+ org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
+ org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:283)
+ jdk.internal.reflect.GeneratedMethodAccessor32.invoke(Unknown Source)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:249)
+ org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48)
+ org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:321)
+ net.bytebuddy.renamed.java.lang.Object$ByteBuddy$V6Y9M04e.isDisplayed(Unknown Source)
+ org.openqa.selenium.support.ui.ExpectedConditions.isInvisible(ExpectedConditions.java:1374)
+ org.openqa.selenium.support.ui.ExpectedConditions.access$200(ExpectedConditions.java:37)
+ org.openqa.selenium.support.ui.ExpectedConditions$48.apply(ExpectedConditions.java:1362)
+ org.openqa.selenium.support.ui.ExpectedConditions$48.apply(ExpectedConditions.java:1358)
+ org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+ utils.Wait.waitInVisibilityOfProgressBar(Wait.java:65)
+ pages.EnhancedDashboardPage.clickOnCompareToggle(EnhancedDashboardPage.java:90)
+ steps.TC65_DashboardDateComparison.clickCompareToggle(TC65_DashboardDateComparison.java:80)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+ io.cucumber.java.Invoker.invoke(Invoker.java:24)
+ io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+ io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+ io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+ io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+ io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+ io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+ io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+ io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+ io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+ io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+ io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+ io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+ io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+ io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+ io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+ io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+ java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ java.base/java.lang.reflect.Method.invoke(Method.java:568)
+ org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+ org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+ org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+ org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+ org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+ org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+ org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base/java.lang.Thread.run(Thread.java:833)
+[INFO ] 2023-12-07 15:26:50.825 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955610765_runScenario_Get text_passed'
+[INFO ] 2023-12-07 15:26:50.835 [TestNG-test=cucumber test runner-1] ReportManager -   [32mAnd [0m[32mClick Compare Toggle[0m                                                                                                [90m# steps.TC65_DashboardDateComparison.clickCompareToggle()[0m
+[INFO ] 2023-12-07 15:26:50.835 [TestNG-test=cucumber test runner-1] ReportManager - Scenario Step: Then Compare Toggle is switched on and Comparison Date is displayed
+[INFO ] 2023-12-07 15:26:50.914 [TestNG-test=cucumber test runner-1] ReportManager - Attempting to getAttribute "class" from elementLocator "By.tagName: label".
+[INFO ] 2023-12-07 15:26:51.320 [TestNG-test=cucumber test runner-1] ReportManager - Get attribute "toggle isChecked" from "By.tagName: label".
+[INFO ] 2023-12-07 15:26:51.322 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955611259_runScenario_Get attribute_passed'
+[INFO ] 2023-12-07 15:26:51.323 [TestNG-test=cucumber test runner-1] ReportManager - Expected "toggle isChecked", and actual "toggle isChecked"
+[INFO ] 2023-12-07 15:26:51.723 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateElementAttribute" PASSED. Expected "Value Should be 'toggle isChecked' for the 'class' attribute, element locator 'By.tagName: label'" and Actual "toggle isChecked". Comparison Type "EQUALS". Validation Type "POSITIVE".
+[INFO ] 2023-12-07 15:26:51.726 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955611624_runScenario_ValidateElementAttribute_passed'
+[INFO ] 2023-12-07 15:26:51.803 [TestNG-test=cucumber test runner-1] ReportManager - Attempting to getAttribute "hidden" from elementLocator "By.xpath: (//button[@id='datepicker.trigger'])[2]".
+[INFO ] 2023-12-07 15:26:52.403 [TestNG-test=cucumber test runner-1] ReportManager - Get attribute from "2023-12-06 calendar_today".
+[INFO ] 2023-12-07 15:26:52.406 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955612331_runScenario_Get attribute_passed'
+[INFO ] 2023-12-07 15:26:52.406 [TestNG-test=cucumber test runner-1] ReportManager - Expected "null", and actual "null"
+[INFO ] 2023-12-07 15:26:52.905 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateElementAttribute" PASSED. Expected "Value Should be 'null' for the 'hidden' attribute, element locator 'By.xpath: (//button[@id='datepicker.trigger'])[2]'" and Actual "null". Comparison Type "EQUALS". Validation Type "POSITIVE".
+[INFO ] 2023-12-07 15:26:52.906 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955612817_runScenario_ValidateElementAttribute_passed'
+[INFO ] 2023-12-07 15:26:52.906 [TestNG-test=cucumber test runner-1] ReportManager -   [32mThen [0m[32mCompare Toggle is switched on and Comparison Date is displayed[0m                                                     [90m# steps.TC65_DashboardDateComparison.compareToggleIsSwitchedOnAndComparisonDateIsDisplayed()[0m
+[INFO ] 2023-12-07 15:26:52.906 [TestNG-test=cucumber test runner-1] ReportManager - Scenario Step: And All charts are fully loaded
+[INFO ] 2023-12-07 15:27:22.973 [TestNG-test=cucumber test runner-1] ReportManager - Expected condition failed: waiting for com.shaft.gui.element.internal.ElementActionsHelper$$Lambda$1141/0x00000008012458b8@36110321 (tried for 30 second(s) with 100 milliseconds interval) || no such element: Unable to locate element: {"method":"xpath","selector":"//div[contains(@class,'inset-0 absolute')]"}
+[INFO ] 2023-12-07 15:27:23.138 [TestNG-test=cucumber test runner-1] ReportManager - Assertion "ValidateElementExists" PASSED. Expected "Element Should not Exist, locator 'By.xpath: //div[contains(@class,'inset-0 absolute')]'" and Actual "Element Doesn't Exists". Comparison Type "EQUALS". Validation Type "NEGATIVE".
+[INFO ] 2023-12-07 15:27:23.140 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'Screenshot - 1701955643074_runScenario_ValidateElementExists_passed'
+[INFO ] 2023-12-07 15:27:23.140 [TestNG-test=cucumber test runner-1] ReportManager -   [32mAnd [0m[32mAll charts are fully loaded[0m                                                                                         [90m# steps.TC65_DashboardDateComparison.allChartsAreFullyLoaded()[0m
+[INFO ] 2023-12-07 15:27:23.141 [TestNG-test=cucumber test runner-1] ReportManager - Scenario Hook: AFTER
+[INFO ] 2023-12-07 15:27:23.461 [TestNG-test=cucumber test runner-1] ReportManager - Successfully Closed Driver.
+[ERROR] 2023-12-07 15:27:23.607 [TestNG-test=cucumber test runner-1] AllureLifecycle - Could not add attachment: no test is running
+[INFO ] 2023-12-07 15:27:23.608 [TestNG-test=cucumber test runner-1] ReportManager - Successfully created attachment 'SHAFT Engine Logs - Current Method log: runScenario'
+[INFO ] 2023-12-07 15:27:23.746 [main] ReportManager - 
+[0;7m------------------------------------------------------------------------------------------------------------------------------------------------
+                                           Starting execution of engine teardown configuration method                                           
+                                        'com.shaft.listeners.internal.ConfigurationHelper.engineTeardown'                                        
+------------------------------------------------------------------------------------------------------------------------------------------------
+[0m
+[INFO ] 2023-12-07 15:27:23.747 [main] ReportManager - Successfully created attachment 'SHAFT Engine Logs - Execution log'
+[INFO ] 2023-12-07 15:27:23.750 [main] ReportManager - File Action "DoesFileExist" successfully performed. With the following test data "File Path: "target/logs/log4j.log"".
+[INFO ] 2023-12-07 15:27:23.752 [main] ReportManager - File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "target/logs/log4j.log"".

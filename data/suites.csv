@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Dec 07 15:26:01 EET 2023","Thu Dec 07 15:27:23 EET 2023","81582","","Date Comparison","","Verify that compare toggle can be switched on successfully in all views and all charts are fully loaded","","Verify that compare toggle can be switched on successfully in all views and all charts are fully loaded",""
