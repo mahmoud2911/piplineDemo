@@ -63,7 +63,7 @@ pipeline {
       stage('Serve Allure Report to GitHub Pages') {
           steps {
               script {
-                  def ghPagesCommand = isUnix() ? '/usr/local/lib/node_modules/gh-pages' : 'C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\npm\\node_modules\\gh-pages'
+                  def ghPagesCommand = isUnix() ? '/usr/local/lib/node_modules/gh-pages' : 'C:\\Users\\Foodics\\AppData\\Roaming\\npm\\node_modules\\gh-pages'
 
                   // Run the gh-pages command in a platform-agnostic way
                   if (isUnix()) {
