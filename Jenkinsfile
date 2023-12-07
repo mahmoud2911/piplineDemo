@@ -89,10 +89,16 @@ pipeline {
     post {
         always {
             echo 'Sending email with reports...'
+            // Get the project name, build number, and build status
+                   def projectName = env.JOB_NAME
+                   def buildNumber = env.BUILD_NUMBER
+                   def buildStatus = currentBuild.currentResult
+                   // Build the custom subject with an identifier for test results
+                   def customSubject = "${projectName} - Build #${buildNumber} - ${buildStatus} - Test Results"
             emailext attachmentsPattern: 'execution-summary/*.html,allure-report/index.html',
                     body: 'Please find attached the Allure and Execution Summary reports.',
                     mimeType: 'text/html',
-                    subject: 'Test Execution Report',
+                    subject: customSubject,
                     to: 'mahmoud.ahmed@foodics.com'
         }
     }
