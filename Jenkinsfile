@@ -3,6 +3,7 @@ pipeline {
     tools {
         maven 'Maven 3.9.5'
         allure 'Allure 2.24.1'
+        dockerTool 'Docker'
     }
     stages {
         stage('Checkout') {
