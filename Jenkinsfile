@@ -23,7 +23,7 @@ pipeline {
             steps {
                 echo 'Building Test Scripts...'
                 script {
-                    def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression -DexecutionAddress=dockerized -DtargetOperatingSystem=LINUX -DSHAFT.CrossBrowserMode=sequential'
+                    def mavenCommand = 'mvn -Dmaven.test.failure.ignore clean test -Dcucumber.filter.tags=@regression'
                     if (isUnix()) {
                         sh mavenCommand
                     } else {
