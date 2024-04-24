@@ -6,6 +6,8 @@ import utils.JsonReader;
 import utils.Wait;
 
 public class Common extends PageBase {
+
+
     final private By successMessage = By.xpath("//div[contains(@class,'notification bg-positive-500')]");
     final private By modalBody = By.id("decorated-modal-body");
     final private By modalTitle = By.xpath("//*[@id=\"main\"]/div/div/div[2]/div/div/div/div[5]/div/div/div[1]");
